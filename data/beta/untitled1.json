@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "atlas.requirement-baseline/v2",
+  "projectId": "699eade7-ff56-44f7-b124-136b27e532dd",
+  "createdAt": "2026-10-31T02:51:25.970Z",
+  "completedAt": "2026-10-31T03:01:58.806Z",
+  "status": "complete",
+  "source": {
+    "app": "requirement-intake-v2",
+    "tableId": "table1-atlas-hardware-v2",
+    "tableVersion": "2.0.0"
+  },
+  "result": {
+    "productType": {
+      "presetId": "h3",
+      "code": "h3",
+      "name": "h3 手持云台",
+      "category": "影像硬件",
+      "fit": "表1 目前仅预置 h3 手持云台一种整机，用户未提供任何品类信息，按规则默认归入该类型，待用户补充描述后再校正。"
+    },
+    "constraints": [
+      {
+        "key": "c:none:custom:无额外硬性约束:",
+        "dimension": "none",
+        "name": "无额外硬性约束",
+        "operator": "custom",
+        "value": "无额外硬性约束",
+        "unit": "",
+        "display": "无额外硬性约束",
+        "priority": "must",
+        "verification": "确认约束清单中除本条外无其他硬性条目，且用户书面确认无遗漏",
+        "sourceText": "没有额外硬性约束。"
+      }
+    ],
+    "parts": [
+      {
+        "code": "h3",
+        "name": "h3 手持云台",
+        "level": "L1",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "整机根节点，不覆盖下级"
+      },
+      {
+        "code": "h3-cam-01",
+        "name": "相机模组",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-cam",
+        "note": ""
+      },
+      {
+        "code": "h3-cam-02",
+        "name": "镜头与滤光片",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-cam",
+        "note": ""
+      },
+      {
+        "code": "h3-cam-03",
+        "name": "图像传感器板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-cam",
+        "note": ""
+      },
+      {
+        "code": "h3-cam-04",
+        "name": "散热支架",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-cam",
+        "note": ""
+      },
+      {
+        "code": "h3-pit-01",
+        "name": "俯仰无刷电机",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pit",
+        "note": ""
+      },
+      {
+        "code": "h3-pit-02",
+        "name": "俯仰轴臂",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pit",
+        "note": ""
+      },
+      {
+        "code": "h3-pit-03",
+        "name": "姿态传感 IMU-A",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pit",
+        "note": ""
+      },
+      {
+        "code": "h3-pit-04",
+        "name": "微型轴承",
+        "level": "L3",
+        "qty": 2,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pit",
+        "note": "数量 2"
+      },
+      {
+        "code": "h3-rol-01",
+        "name": "横滚无刷电机",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-rol",
+        "note": ""
+      },
+      {
+        "code": "h3-rol-02",
+        "name": "横滚轴臂",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-rol",
+        "note": ""
+      },
+      {
+        "code": "h3-rol-03",
+        "name": "滑环线束",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-rol",
+        "note": ""
+      },
+      {
+        "code": "h3-rol-04",
+        "name": "机械限位件",
+        "level": "L3",
+        "qty": 2,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-rol",
+        "note": "数量 2"
+      },
+      {
+        "code": "h3-yaw-01",
+        "name": "航向无刷电机",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-yaw",
+        "note": ""
+      },
+      {
+        "code": "h3-yaw-02",
+        "name": "航向轴臂",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-yaw",
+        "note": ""
+      },
+      {
+        "code": "h3-yaw-03",
+        "name": "磁性编码器",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-yaw",
+        "note": ""
+      },
+      {
+        "code": "h3-yaw-04",
+        "name": "锁紧螺钉组",
+        "level": "L3",
+        "qty": 6,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-yaw",
+        "note": "数量 6"
+      },
+      {
+        "code": "h3-hnd-01",
+        "name": "手柄前壳",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-hnd",
+        "note": ""
+      },
+      {
+        "code": "h3-hnd-02",
+        "name": "手柄后壳",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-hnd",
+        "note": ""
+      },
+      {
+        "code": "h3-hnd-03",
+        "name": "握持胶套",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-hnd",
+        "note": ""
+      },
+      {
+        "code": "h3-hnd-04",
+        "name": "快装底座",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-hnd",
+        "note": ""
+      },
+      {
+        "code": "h3-ctl-01",
+        "name": "主控板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-ctl",
+        "note": ""
+      },
+      {
+        "code": "h3-ctl-02",
+        "name": "三轴驱动板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-ctl",
+        "note": ""
+      },
+      {
+        "code": "h3-ctl-03",
+        "name": "摇杆与按键",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-ctl",
+        "note": ""
+      },
+      {
+        "code": "h3-ctl-04",
+        "name": "蓝牙模块",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-ctl",
+        "note": ""
+      },
+      {
+        "code": "h3-pwr-01",
+        "name": "锂电池组",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pwr",
+        "note": ""
+      },
+      {
+        "code": "h3-pwr-02",
+        "name": "电源管理板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pwr",
+        "note": ""
+      },
+      {
+        "code": "h3-pwr-03",
+        "name": "USB-C 接口",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pwr",
+        "note": ""
+      },
+      {
+        "code": "h3-pwr-04",
+        "name": "内部线束",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3-pwr",
+        "note": ""
+      }
+    ],
+    "bomLevel": "L3",
+    "bomLevelName": "零部件级"
+  },
+  "counts": {
+    "productType": 1,
+    "constraints": 1,
+    "parts": 29
+  },
+  "questions": [
+    {
+      "id": "product_type",
+      "functionName": "submit_product_type",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-31T02:51:49.226Z",
+      "selectedCount": 1,
+      "itemCount": 1,
+      "reply": "你的输入只有“有什么”三个字，没有包含任何项目或商品信息，所以我暂时无法判断你要做的是什么产品。\n\n目前的处理方式是：表1 里只预置了一种整机，即 h3 手持云台（三轴手持稳定器，包含相机与成像、俯仰/横滚/航向三个增稳轴、手柄与人机、控制电子、电源与线束七个模块）。按规则，我先把你归入 h3，但这只是默认归类，置信度很低，需要你补充信息后再校正。\n\n请逐条确认或补充以下内容：\n一、你要做的产品是什么品类、什么用途；\n二、整机型号或项目名称；\n三、是否确实属于手持云台/稳定器类产品；如果是其他品类（比如手机云台、运动相机、无人机云台等），请说明与 h3 的差异；\n四、目标使用场景和使用对象；\n五、你希望拆到哪一层：整机级、模块级，还是零部件级。\n\n你补充后，我会重新给出商品类型候选，并继续往下确认约束条件。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "hard_constraints",
+      "functionName": "submit_hard_constraints",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-31T03:01:41.314Z",
+      "selectedCount": 1,
+      "itemCount": 1,
+      "reply": "已按你的说明记录：h3 手持云台这一轮没有额外硬性约束，约束清单里只保留一条“无额外硬性约束”的占位条目，不额外添加任何重量、成本、防护、交期或认证方面的要求。\n\n需要你逐条确认的只有这一条：\n一、“无额外硬性约束”是否准确反映你的意思，即本轮不设任何必须达成的硬性指标。\n\n另外提醒一下，以下这些常见约束目前都是空白，属于待补充项，不是默认值：整机重量目标、BOM 成本或预算上限、防护等级、认证要求、首批交付周期、续航时间与额定负载。如果后续要补，直接告诉我具体数值和口径即可，我会把它们拆成可逐条验证的约束再加进来。\n\n请确认上面这一条是否成立；确认后本轮约束集合即定稿。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "parts",
+      "functionName": "submit_parts",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-31T03:01:58.803Z",
+      "selectedCount": 29,
+      "itemCount": 36,
+      "reply": "已按你的要求处理：h3 手持云台的 7 个模块全部拆到零件级，整机作为根节点保留，不覆盖下级，方便你逐件询价和打样。\n\n关键点如下：\n一、相机与成像拆为 4 件：相机模组、镜头与滤光片、图像传感器板、散热支架。\n二、俯仰轴总成拆为 4 件：俯仰无刷电机、俯仰轴臂、姿态传感 IMU-A、微型轴承（2 件）。\n三、横滚轴总成拆为 4 件：横滚无刷电机、横滚轴臂、滑环线束、机械限位件（2 件）。\n四、航向轴总成拆为 4 件：航向无刷电机、航向轴臂、磁性编码器、锁紧螺钉组（6 件）。\n五、手柄与人机拆为 4 件：手柄前壳、手柄后壳、握持胶套、快装底座。\n六、控制电子拆为 4 件：主控板、三轴驱动板、摇杆与按键、蓝牙模块。\n七、电源与线束拆为 4 件：锂电池组、电源管理板、USB-C 接口、内部线束。\n合计 28 个零件条目，层级记为零件级。\n\n需要你逐条确认：\n一、是否确认 7 个模块全部拆到零件，没有哪个模块想保留为整模块采购。\n二、是否确认零件清单与数量（轴承 2、限位件 2、螺钉组 6）符合你的装配预期。\n三、以下信息你尚未提供，需要补充：各零件的材料牌号、表面处理与公差；哪些按标准件、哪些按定制件；打样数量与目标单价。\n四、你已确认无额外硬性约束，若后续要加重量、成本或交期要求，可以再补。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    }
+  ],
+  "handoff": {
+    "target": "next-page",
+    "note": "由需求规范化页面生成，点击「进入下一阶段」时经 POST /api/handoff 写入交接文件，下一页面按 next.html?handoff=<令牌> 读回。"
+  },
+  "projectName": "untitled1",
+  "savedAt": "2026-10-31T03:02:00.182Z",
+  "savedBy": "beta",
+  "storage": {
+    "folder": "beta",
+    "file": "untitled1.json"
+  }
+}

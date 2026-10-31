@@ -1,0 +1,401 @@
+{
+  "schemaVersion": "atlas.requirement-baseline/v2",
+  "projectId": "51788e7a-e87e-40e2-9338-72fa45d2a535",
+  "createdAt": "2026-10-30T15:17:43.465Z",
+  "completedAt": "2026-10-30T15:18:37.802Z",
+  "status": "complete",
+  "source": {
+    "app": "requirement-intake-v2",
+    "tableId": "table1-atlas-hardware-v1",
+    "tableVersion": "1.0.0"
+  },
+  "result": {
+    "productType": {
+      "presetId": "smart_gimbal_robot",
+      "code": "PT-06",
+      "name": "云台机器人 / 摄影机器人",
+      "category": "行业设备",
+      "fit": "明确提到工业巡检与机器人形态，属于云台机器人/PTZ 系统的典型应用场景。"
+    },
+    "constraints": [
+      {
+        "key": "c:budget:<=:2500:cny",
+        "dimension": "budget",
+        "name": "BOM 成本",
+        "operator": "<=",
+        "value": "2500",
+        "unit": "CNY",
+        "display": "≤ 2500 CNY",
+        "priority": "must",
+        "verification": "按零部件级 BOM 汇总单价×数量，核算总额 ≤ 2500 元/台",
+        "sourceText": "BOM 成本 2500 元以内"
+      }
+    ],
+    "parts": [
+      {
+        "code": "P-001",
+        "name": "云台机器人整机",
+        "level": "L1",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "顶级条目，仅作层级锚点，不单独询价"
+      },
+      {
+        "code": "P-101",
+        "name": "三轴云台机械总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-102",
+        "name": "机身结构与外壳总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-103",
+        "name": "驱动与电控总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-104",
+        "name": "主控与通信总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-105",
+        "name": "供电与电池总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-106",
+        "name": "线缆与接插件包",
+        "level": "L2",
+        "qty": 1,
+        "unit": "set",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-107",
+        "name": "标准紧固件与辅料包",
+        "level": "L2",
+        "qty": 1,
+        "unit": "set",
+        "material": "",
+        "spec": "",
+        "parentCode": "P-001",
+        "note": "模块级锚点"
+      },
+      {
+        "code": "P-201",
+        "name": "航向轴电机",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "无刷力矩电机，具体型号待定",
+        "parentCode": "P-101",
+        "note": "定制/选型件，需确认扭矩与转速"
+      },
+      {
+        "code": "P-202",
+        "name": "俯仰轴电机",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "无刷力矩电机，具体型号待定",
+        "parentCode": "P-101",
+        "note": "定制/选型件，需确认扭矩与转速"
+      },
+      {
+        "code": "P-203",
+        "name": "横滚轴电机",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "无刷力矩电机，具体型号待定",
+        "parentCode": "P-101",
+        "note": "定制/选型件，需确认扭矩与转速"
+      },
+      {
+        "code": "P-204",
+        "name": "磁编码器",
+        "level": "L3",
+        "qty": 3,
+        "unit": "pcs",
+        "material": "",
+        "spec": "分辨率与接口待定",
+        "parentCode": "P-101",
+        "note": "标准件，每轴 1 只"
+      },
+      {
+        "code": "P-205",
+        "name": "交叉滚子轴承",
+        "level": "L3",
+        "qty": 3,
+        "unit": "pcs",
+        "material": "轴承钢",
+        "spec": "内径/外径待定",
+        "parentCode": "P-101",
+        "note": "标准件"
+      },
+      {
+        "code": "P-206",
+        "name": "云台臂结构件",
+        "level": "L3",
+        "qty": 3,
+        "unit": "pcs",
+        "material": "铝合金",
+        "spec": "三轴臂，尺寸待定",
+        "parentCode": "P-101",
+        "note": "定制件，CNC 加工"
+      },
+      {
+        "code": "P-207",
+        "name": "负载快装板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "铝合金",
+        "spec": "接口标准待定",
+        "parentCode": "P-101",
+        "note": "定制件"
+      },
+      {
+        "code": "P-208",
+        "name": "机身主框架",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "铝合金",
+        "spec": "尺寸待定",
+        "parentCode": "P-102",
+        "note": "定制件，CNC 加工"
+      },
+      {
+        "code": "P-209",
+        "name": "外壳上盖",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "工程塑料",
+        "spec": "尺寸待定",
+        "parentCode": "P-102",
+        "note": "定制件，注塑或 CNC"
+      },
+      {
+        "code": "P-210",
+        "name": "外壳下盖",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "工程塑料",
+        "spec": "尺寸待定",
+        "parentCode": "P-102",
+        "note": "定制件，注塑或 CNC"
+      },
+      {
+        "code": "P-211",
+        "name": "电机驱动板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "三轴驱动，具体方案待定",
+        "parentCode": "P-103",
+        "note": "定制件，PCBA"
+      },
+      {
+        "code": "P-212",
+        "name": "主控板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "主控芯片与接口待定",
+        "parentCode": "P-104",
+        "note": "定制件，PCBA"
+      },
+      {
+        "code": "P-213",
+        "name": "无线通信模块",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "制式与频段待定",
+        "parentCode": "P-104",
+        "note": "标准件/选型件"
+      },
+      {
+        "code": "P-214",
+        "name": "锂电池包",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "电压/容量待定",
+        "parentCode": "P-105",
+        "note": "定制件，需确认认证要求"
+      },
+      {
+        "code": "P-215",
+        "name": "电池管理板 BMS",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "串数与保护参数待定",
+        "parentCode": "P-105",
+        "note": "定制件，PCBA"
+      },
+      {
+        "code": "P-216",
+        "name": "电源开关与接口板",
+        "level": "L3",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "接口类型待定",
+        "parentCode": "P-105",
+        "note": "定制件"
+      },
+      {
+        "code": "P-217",
+        "name": "内部线束",
+        "level": "L3",
+        "qty": 1,
+        "unit": "set",
+        "material": "",
+        "spec": "长度与线规待定",
+        "parentCode": "P-106",
+        "note": "定制件"
+      },
+      {
+        "code": "P-218",
+        "name": "外部接插件",
+        "level": "L3",
+        "qty": 1,
+        "unit": "set",
+        "material": "",
+        "spec": "型号待定",
+        "parentCode": "P-106",
+        "note": "标准件"
+      },
+      {
+        "code": "P-219",
+        "name": "螺钉与紧固件",
+        "level": "L3",
+        "qty": 1,
+        "unit": "set",
+        "material": "不锈钢",
+        "spec": "规格组合待定",
+        "parentCode": "P-107",
+        "note": "标准件"
+      },
+      {
+        "code": "P-220",
+        "name": "导热与缓冲辅料",
+        "level": "L3",
+        "qty": 1,
+        "unit": "set",
+        "material": "",
+        "spec": "种类与用量待定",
+        "parentCode": "P-107",
+        "note": "标准件"
+      }
+    ],
+    "bomLevel": "L3",
+    "bomLevelName": "零部件级"
+  },
+  "counts": {
+    "productType": 1,
+    "constraints": 1,
+    "parts": 28
+  },
+  "questions": [
+    {
+      "id": "product_type",
+      "functionName": "submit_product_type",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-30T15:17:58.589Z",
+      "selectedCount": 1,
+      "itemCount": 3,
+      "reply": "我把你的需求理解为：一台用于工业巡检的三轴云台机器人，核心是三轴增稳云台，形态是机器人或 PTZ 系统，使用场景是工业巡检。\n\n据此给出的商品类型候选如下：\n第一，主类型是云台机器人 / 摄影机器人，对应工业检测、巡检、PTZ 这类行业设备，匹配度最高。\n第二，备选是三轴稳定器 / 云台，如果项目重点其实是云台本体、机器人底盘只是配套，可以改归这一类。\n第三，备选是相机模组 / 影像模组，如果重点在巡检成像核心部件，可以选这一类。\n\n另外有几点我无法从你的描述中确定，需要你补充：\n一是云台要搭载什么负载、额定负载多少，比如具体相机型号或重量；\n二是机器人形态，是地面移动底盘、轨道式、固定立柱还是其他；\n三是使用环境与防护等级要求；\n四是拆解层级，我暂按模块级处理，如果你要拆到零件级请说明。\n\n请逐条确认：主类型是否用云台机器人，备选是否需要保留，以及上面四项补充信息。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "hard_constraints",
+      "functionName": "submit_hard_constraints",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-30T15:18:09.920Z",
+      "selectedCount": 1,
+      "itemCount": 4,
+      "reply": "已按你的描述整理出 4 条不可让步的硬性约束，请逐条确认：\n\n第一，整机重量不超过 800 克，按成品实测称重来验证。\n第二，BOM 成本控制在 2500 元以内，按零部件级清单汇总单价乘数量核算。\n第三，防护等级必须达到 IP54，需按防尘防水标准测试并出具检测结果。\n第四，首批交期不超过 45 天，以到货日期为准核对。\n\n另外有 4 处需要你补充说明，否则验收时容易产生分歧：一是 2500 元是否含税、含包装和运费；二是 45 天从哪一天起算，是下单日、图纸确认日还是预付款日；三是 IP54 是否需要第三方检测报告、依据哪个标准；四是 800 克是否包含电池、手柄等配件。\n\n请确认以上 4 条约束是否准确，并回复这 4 处补充说明。如果还有别的不能让步的条件，比如工作温度、接口协议、兼容性、材料或可靠性寿命，也请一并告诉我，我会补进约束集合。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "parts",
+      "functionName": "submit_parts",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-30T15:18:37.800Z",
+      "selectedCount": 28,
+      "itemCount": 28,
+      "reply": "已按你的要求把拆解层级锁定在零件级，也就是能直接拿去询价和打样的深度。整体思路是：先保留整机和模块作为层级参照，再在每个模块下展开到具体零件，共 24 项零件条目，每项都有唯一编号，后续多次生成会沿用同一编号，不会重排。\n\n关键点如下：\n一是层级选择。你选的是零件级，所以清单里包含零件名称、规格、数量、材料大类和标准件或定制件的区分，但不涉及材料牌号、热处理和表面处理工艺参数；这些属于更深一层，本次不展开。\n二是结构划分。整机下分七个模块：三轴云台机械总成、机身结构与外壳总成、驱动与电控总成、主控与通信总成、供电与电池总成、线缆与接插件包、标准紧固件与辅料包。\n三是零件展开。云台机械部分包含三个轴的电机、三个磁编码器、三个交叉滚子轴承、云台臂结构件和负载快装板；结构部分包含主框架和上下外壳；电控部分包含电机驱动板和主控板；通信部分包含无线通信模块；供电部分包含锂电池包、电池管理板和电源接口板；此外还有内部线束、外部接插件、紧固件和导热缓冲辅料。\n四是成本口径。你已确认整机成本不超过 2500 元，这个约束会作为后续询价汇总的上限，但清单里没有替你分配各零件的目标单价。\n\n需要你逐条确认或补充的地方：\n第一，三个轴电机的扭矩、转速和型号尚未确定，目前只写了无刷力矩电机，需要你给出选型方向。\n第二，整机外形尺寸和额定负载没有提供，这直接影响结构件尺寸和电机选型。\n第三，电池的电压、容量和续航目标未定，电池包和电池管理板的规格无法锁定。\n第四，主控芯片方案和无线通信制式未定，主控板与通信模块只能先占位。\n第五，外壳采用注塑还是数控加工未确认，会影响打样方式和成本。\n第六，认证要求（例如是否需要 CE、FCC）未提供，电池包尤其需要明确。\n第七，首批数量和交期未提供，询价时缺少批量口径。\n\n以上七项确认后，我可以把占位规格补实，并给出各零件的目标成本分配建议。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    }
+  ],
+  "handoff": {
+    "target": "next-page",
+    "note": "由需求规范化页面生成，供下一步 BOM / 方案页面读取；读取入口为 window.__REQUIREMENT_PAYLOAD__ 或 localStorage。"
+  },
+  "projectName": "untitled2",
+  "savedAt": "2026-10-30T15:18:48.580Z",
+  "savedBy": "alice",
+  "storage": {
+    "folder": "alice",
+    "file": "untitled2.json"
+  }
+}

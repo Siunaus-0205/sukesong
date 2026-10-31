@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "atlas.requirement-baseline/v2",
+  "projectId": "demo-h3-001",
+  "projectName": "H3 云台 · 演示需求",
+  "createdAt": "2026-10-31T03:00:00.000Z",
+  "completedAt": "2026-10-31T03:10:00.000Z",
+  "status": "complete",
+  "source": {
+    "app": "requirement-intake-v2",
+    "tableId": "table1-atlas-hardware-v2",
+    "tableVersion": "2.0.0"
+  },
+  "result": {
+    "productType": {
+      "presetId": "h3",
+      "code": "h3",
+      "name": "h3 手持云台",
+      "category": "影像硬件",
+      "fit": "三轴手持增稳"
+    },
+    "constraints": [
+      {
+        "key": "c:weight",
+        "dimension": "weight",
+        "name": "整机重量",
+        "operator": "<=",
+        "value": "800",
+        "unit": "g",
+        "display": "整机重量 ≤ 800 g"
+      },
+      {
+        "key": "c:budget",
+        "dimension": "budget",
+        "name": "BOM 成本",
+        "operator": "<=",
+        "value": "2500",
+        "unit": "CNY",
+        "display": "BOM 成本 ≤ 2500 元"
+      },
+      {
+        "key": "c:lead",
+        "dimension": "lead_time",
+        "name": "交付周期",
+        "operator": "<=",
+        "value": "45",
+        "unit": "day",
+        "display": "首批交期 ≤ 45 天"
+      },
+      {
+        "key": "c:ingress",
+        "dimension": "ingress",
+        "name": "防护等级",
+        "operator": ">=",
+        "value": "IP54",
+        "unit": "",
+        "display": "防护等级 ≥ IP54"
+      }
+    ],
+    "parts": [],
+    "bomLevel": "L3",
+    "bomLevelName": "零部件级"
+  },
+  "counts": {
+    "productType": 1,
+    "constraints": 4,
+    "parts": 0
+  },
+  "questions": [],
+  "handoff": {
+    "target": "next-page",
+    "note": "demo payload"
+  }
+}

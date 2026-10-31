@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "atlas.requirement-baseline/v2",
+  "projectId": "7473a487-4e00-4f50-91a3-4a676d4166f8",
+  "createdAt": "2026-10-30T15:08:50.864Z",
+  "completedAt": "2026-10-30T15:09:50.874Z",
+  "status": "complete",
+  "source": {
+    "app": "requirement-intake-v2",
+    "tableId": "table1-atlas-hardware-v1",
+    "tableVersion": "1.0.0"
+  },
+  "result": {
+    "productType": {
+      "presetId": "camera_module",
+      "code": "PT-05",
+      "name": "相机模组 / 影像模组",
+      "category": "核心器件",
+      "fit": "若后续需要自研云台相机核心部件或镜头模组，可归入影像模组，但当前描述是整机产品，匹配度较低。"
+    },
+    "constraints": [
+      {
+        "key": "c:weight:<=:800:g",
+        "dimension": "weight",
+        "name": "整机重量",
+        "operator": "<=",
+        "value": "800",
+        "unit": "g",
+        "display": "≤ 800 g",
+        "priority": "must",
+        "verification": "样机在标准电子秤上称重，整机（含外壳与线缆）实测值 ≤ 800 g",
+        "sourceText": "整机不超过 800 g"
+      },
+      {
+        "key": "c:budget:<=:2500:cny",
+        "dimension": "budget",
+        "name": "BOM 成本",
+        "operator": "<=",
+        "value": "2500",
+        "unit": "CNY",
+        "display": "≤ 2500 CNY",
+        "priority": "must",
+        "verification": "按量产批量询价汇总 BOM 清单，单套物料成本合计 ≤ 2500 元",
+        "sourceText": "BOM 成本 2500 元以内"
+      },
+      {
+        "key": "c:ingress:>=:ip54:",
+        "dimension": "ingress",
+        "name": "防护等级",
+        "operator": ">=",
+        "value": "IP54",
+        "unit": "",
+        "display": "≥ IP54",
+        "priority": "should",
+        "verification": "按 GB/T 4208 / IEC 60529 进行 IP5X 防尘与 IPX4 防水试验，出具第三方检测报告",
+        "sourceText": "最好是 IP54"
+      },
+      {
+        "key": "c:lead_time:<=:45:day",
+        "dimension": "lead_time",
+        "name": "首批交付周期",
+        "operator": "<=",
+        "value": "45",
+        "unit": "day",
+        "display": "≤ 45 day",
+        "priority": "must",
+        "verification": "以订单确认日为起点，核对首批交付签收日期 ≤ 45 天",
+        "sourceText": "首批交期 45 天"
+      }
+    ],
+    "parts": [
+      {
+        "code": "M-001",
+        "name": "光学镜头模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "定制件；具体焦距/光圈待定"
+      },
+      {
+        "code": "M-002",
+        "name": "图像传感器模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "外购件；像素与靶面规格待定"
+      },
+      {
+        "code": "M-003",
+        "name": "主控与图像处理板模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "定制件；含主控芯片与固件载体"
+      },
+      {
+        "code": "M-004",
+        "name": "增稳云台执行模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "定制件；含电机与机械结构总成"
+      },
+      {
+        "code": "M-005",
+        "name": "外壳与结构防护模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "定制件；需满足 IP54 防护"
+      },
+      {
+        "code": "M-006",
+        "name": "供电与电源管理模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "定制件；含电池或外部供电接口"
+      },
+      {
+        "code": "M-007",
+        "name": "接口与线缆模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "接口类型待确认"
+      },
+      {
+        "code": "M-008",
+        "name": "包装与随附件模块",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "标准件为主"
+      }
+    ],
+    "bomLevel": "L2",
+    "bomLevelName": "模块 / 组件级"
+  },
+  "counts": {
+    "productType": 1,
+    "constraints": 4,
+    "parts": 8
+  },
+  "questions": [
+    {
+      "id": "product_type",
+      "functionName": "submit_product_type",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-30T15:09:06.634Z",
+      "selectedCount": 1,
+      "itemCount": 3,
+      "reply": "我把你的需求理解为：一款面向手机 Vlog 用户的三轴手持云台，可折叠，主要搭配 iPhone 使用。按预设商品类型，主类型归为“手机稳定器 / 手机云台”，备选是“三轴稳定器 / 云台”和“相机模组 / 影像模组”，后两者匹配度依次降低。\n\n请逐条确认：\n一、主类型是否就按手机稳定器 / 手机云台来定，还是你更希望按通用三轴云台立项。\n二、主要适配的 iPhone 机型范围，比如是否覆盖 iPhone 15 到 17 全系，还是只针对某一代。\n三、整机重量和折叠后尺寸有没有目标值。\n四、额定负载，也就是能承载的手机加配件重量，有没有下限要求。\n五、续航时间和电池容量是否有要求。\n六、BOM 成本或目标售价区间。\n七、拆解层级希望做到哪一级，是整机系统级、模块组件级、零部件级，还是材料工艺级。\n\n以上有明确数值的直接告诉我，没有的可以说明“无硬性要求”，我再据此收敛成可确认的规范条目。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "hard_constraints",
+      "functionName": "submit_hard_constraints",
+      "status": "done",
+      "rounds": 2,
+      "confirmedAt": "2026-10-30T15:09:36.036Z",
+      "selectedCount": 4,
+      "itemCount": 4,
+      "reply": "已按你的描述整理出 4 条约束，其中 3 条是硬性要求，1 条是期望项，请逐条确认：\n\n第一条，整机重量不超过 800 g，属于硬性要求，验收时以整机（含外壳与线缆）实测称重为准。\n\n第二条，BOM 成本控制在 2500 元以内，属于硬性要求，按量产批量询价汇总的单套物料成本核算。\n\n第三条，防护等级希望达到 IP54，属于期望项而非硬性门槛，按防尘防水试验报告验证。\n\n第四条，首批交期 45 天，属于硬性要求，以订单确认到首批签收的时长计算。\n\n另外有三处需要你补充确认：一是 45 天是自然日还是工作日，起算点算下单日、图纸确认日还是预付款到账日；二是 IP54 如果与成本或交期冲突，是否允许降级；三是 2500 元对应的批量规模，以及是否含税、含包装。\n\n请确认以上理解是否准确，需要调整的地方直接告诉我。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "parts",
+      "functionName": "submit_parts",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-30T15:09:50.873Z",
+      "selectedCount": 8,
+      "itemCount": 8,
+      "reply": "已按你的要求把拆解层级锁定在模块级，也就是只拆到功能模块和总成，不展开到单个零件、材料牌号和加工工艺，适合现在做方案阶段的成本估算。\n\n这次给出的模块集合共 8 项，均为顶级模块，彼此并列：光学镜头模块、图像传感器模块、主控与图像处理板模块、增稳云台执行模块、外壳与结构防护模块、供电与电源管理模块、接口与线缆模块、包装与随附件模块。每个模块都带唯一编号，后续多次生成会沿用同一编号，不会重排。\n\n结合已确认的约束，有几点需要你留意：外壳与结构防护模块要承担 IP54 的落地；整机不超过 800 克这条会直接影响云台执行模块和外壳模块的重量分配；2500 元的成本上限目前还没有在模块之间做分配；45 天交期会影响外购件选型。\n\n以下内容我无法从你的描述中确定，需要你补充或确认：一是各模块的目标成本分配，以及总成本按什么口径拆分；二是传感器像素、靶面与镜头焦距、光圈等关键规格；三是接口类型与协议要求；四是是否含内置电池及供电方式；五是 IP54 的具体实现方式与测试要求；六是 800 克上限在模块间的重量分配。\n\n请逐条确认：拆解层级是否就定在模块级；这 8 个模块的划分是否要增删或合并；上述待补项中哪些现在就能给出结论。确认后我再按你的意见调整。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    }
+  ],
+  "handoff": {
+    "target": "next-page",
+    "note": "由需求规范化页面生成，供下一步 BOM / 方案页面读取；读取入口为 window.__REQUIREMENT_PAYLOAD__ 或 localStorage。"
+  },
+  "projectName": "untitled1",
+  "savedAt": "2026-10-30T15:09:59.829Z",
+  "savedBy": "alice",
+  "storage": {
+    "folder": "alice",
+    "file": "untitled1.json"
+  }
+}

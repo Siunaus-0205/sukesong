@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "atlas.requirement-baseline/v2",
+  "projectId": "ff30006d-1346-480f-a8c6-2da89be49b9c",
+  "createdAt": "2026-10-31T02:30:22.760Z",
+  "completedAt": "2026-10-31T02:32:28.464Z",
+  "status": "complete",
+  "source": {
+    "app": "requirement-intake-v2",
+    "tableId": "table1-atlas-hardware-v2",
+    "tableVersion": "2.0.0"
+  },
+  "result": {
+    "productType": {
+      "presetId": "h3",
+      "code": "h3",
+      "name": "h3 手持云台",
+      "category": "影像硬件",
+      "fit": "用户直接点名 h3 手持云台，与表1中 h3 手持云台整机（相机与成像、三轴增稳、手柄、控制电子、电源线束）的模块结构一致，可作为主类型。"
+    },
+    "constraints": [
+      {
+        "key": "c:weight:<=:800:g",
+        "dimension": "weight",
+        "name": "整机重量",
+        "operator": "<=",
+        "value": "800",
+        "unit": "g",
+        "display": "≤ 800 g",
+        "priority": "must",
+        "verification": "整机（含电池、不含配件）称重，实测值 ≤ 800 g",
+        "sourceText": "整机不超过 800 g"
+      },
+      {
+        "key": "c:budget:<=:2500:cny",
+        "dimension": "budget",
+        "name": "BOM 成本",
+        "operator": "<=",
+        "value": "2500",
+        "unit": "CNY",
+        "display": "≤ 2500 CNY",
+        "priority": "should",
+        "verification": "按确认层级（L2 或 L3）汇总 BOM 单价与数量，核算单台成本 ≤ 2500 元",
+        "sourceText": "BOM最好成本 2500 元以内"
+      },
+      {
+        "key": "c:ingress:=:ip54:",
+        "dimension": "ingress",
+        "name": "防护等级",
+        "operator": "=",
+        "value": "IP54",
+        "unit": "",
+        "display": "= IP54",
+        "priority": "should",
+        "verification": "按 GB/T 4208 或 IEC 60529 做防尘防水测试，出具 IP54 检测报告",
+        "sourceText": "最好 IP54"
+      },
+      {
+        "key": "c:lead_time:<=:45:day",
+        "dimension": "lead_time",
+        "name": "首批交付周期",
+        "operator": "<=",
+        "value": "45",
+        "unit": "day",
+        "display": "≤ 45 day",
+        "priority": "must",
+        "verification": "以订单确认日为起点，核对首批量产交付计划节点 ≤ 45 天",
+        "sourceText": "首批交期 45 天"
+      }
+    ],
+    "parts": [
+      {
+        "code": "h3",
+        "name": "h3 手持云台",
+        "level": "L1",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "",
+        "note": "整机根节点，不覆盖下级"
+      },
+      {
+        "code": "h3-cam",
+        "name": "相机与成像",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      },
+      {
+        "code": "h3-pit",
+        "name": "俯仰轴总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      },
+      {
+        "code": "h3-rol",
+        "name": "横滚轴总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      },
+      {
+        "code": "h3-yaw",
+        "name": "航向轴总成",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      },
+      {
+        "code": "h3-hnd",
+        "name": "手柄与人机",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      },
+      {
+        "code": "h3-ctl",
+        "name": "控制电子",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      },
+      {
+        "code": "h3-pwr",
+        "name": "电源与线束",
+        "level": "L2",
+        "qty": 1,
+        "unit": "pcs",
+        "material": "",
+        "spec": "",
+        "parentCode": "h3",
+        "note": "整模块采购"
+      }
+    ],
+    "bomLevel": "L2",
+    "bomLevelName": "模块 / 组件级"
+  },
+  "counts": {
+    "productType": 1,
+    "constraints": 4,
+    "parts": 8
+  },
+  "questions": [
+    {
+      "id": "product_type",
+      "functionName": "submit_product_type",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-31T02:30:45.445Z",
+      "selectedCount": 1,
+      "itemCount": 1,
+      "reply": "你的项目我理解为：一款 h3 手持云台，主要用来搭载全画幅相机，面向婚拍团队使用。按现有预置，它归入 h3 手持云台这一类，也就是三轴手持云台整机，包含相机与成像、俯仰/横滚/航向三个增稳轴、手柄与人机、控制电子、电源与线束这几个模块。\n\n有一点需要先说明：预置的 h3 是自带相机与成像模组的一体化云台，而你要配的是外接全画幅相机，这两者在结构上并不完全一致。因此相机与成像这一块是保留、取消还是替换，需要你来定。\n\n请逐条确认下面几点：\n一、商品类型是否就按 h3 手持云台来做，没有其他品类混在里面。\n二、相机与成像模块如何处理：是去掉自带相机、只做承载全画幅相机的云台，还是保留部分成像相关结构。\n三、全画幅相机的品牌、型号和大致重量，这直接决定额定负载和轴臂尺寸，目前缺失。\n四、婚拍场景下的硬性指标：续航时间、防护等级、工作温度范围，目前都还没有给。\n五、整机重量、外形尺寸、BOM 成本、首批交付周期这几项约束，也还没有给。\n六、是否需要指定快装板或卡口规格，是否需要图传、外接供电等接口。\n\n以上哪几条你现在能定，直接告诉我；暂时定不了的我会先留作待补项，不会替你填默认值。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "hard_constraints",
+      "functionName": "submit_hard_constraints",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-31T02:31:24.117Z",
+      "selectedCount": 4,
+      "itemCount": 4,
+      "reply": "已按你的原话拆出 4 条约束，其中 2 条是硬性要求，2 条是优先项，请你逐条确认。\n\n第一条，整机重量不超过 800 g，这是硬性要求。需要你确认称重口径：是否包含电池，是否包含快装板等配件。\n\n第二条，BOM 成本最好控制在 2500 元以内，这是优先项，不是硬性要求。另外要确认这个 2500 元是按模块级核算，还是按零件级核算，两种口径算出来的结果差别不小。\n\n第三条，防护等级最好达到 IP54，这也是优先项。如果最终做不到 IP54，需要你说明可以接受的最低等级。\n\n第四条，首批交期 45 天，这是硬性要求。需要确认 45 天从哪天开始算：下单日、打样确认日，还是合同生效日。\n\n以上四条，如果哪一条的优先级判断和你的本意不一致，比如成本其实不能让步、防护可以放宽，请直接指出，我会按你的说法调整。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    },
+    {
+      "id": "parts",
+      "functionName": "submit_parts",
+      "status": "done",
+      "rounds": 1,
+      "confirmedAt": "2026-10-31T02:32:28.463Z",
+      "selectedCount": 8,
+      "itemCount": 36,
+      "reply": "已按你的要求处理：h3 手持云台整机下，7 个模块全部按整模块处理，不拆到零件，适合先做方案阶段的成本估算。\n\n具体理解如下，请逐条确认：\n1. 整机条目 h3 作为根节点保留，它只代表整机本身，不覆盖下面的模块。\n2. 相机与成像、俯仰轴总成、横滚轴总成、航向轴总成、手柄与人机、控制电子、电源与线束，这 7 个模块都按整模块采购，不展开到零件。\n3. 因为全部按整模块处理，本次清单的最深层级为模块级，不出现零件级条目。\n4. 已确认的约束仍然有效：整机重量不超过 800 克、成本不超过 2500 元、防护等级为 IP54、交付周期不超过 45 天。\n\n需要你补充的信息：\n1. 各模块的单价或成本区间还没有提供，成本估算需要这些数据才能算出总额。\n2. 800 克重量和 IP54 防护在各模块上的分配指标尚未明确，后续拆解或询价时会用到。\n\n如果以上理解无误，请确认；若某个模块其实需要拆到零件，请指出是哪一个，我再调整。",
+      "mode": "live",
+      "model": "deepseek-flash"
+    }
+  ],
+  "handoff": {
+    "target": "next-page",
+    "note": "由需求规范化页面生成，点击「进入下一阶段」时经 POST /api/handoff 写入交接文件，下一页面按 next.html?handoff=<令牌> 读回。"
+  },
+  "projectName": "untitled3",
+  "savedAt": "2026-10-31T02:32:35.225Z",
+  "savedBy": "alice",
+  "storage": {
+    "folder": "alice",
+    "file": "untitled3.json"
+  }
+}

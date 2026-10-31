@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>ATLAS · 方案配置与对比</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f14'/%3E%3Cpath d='M8 22 16 8l8 14' stroke='%236ee7d0' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./next.css" />
+  </head>
+  <body class="s2-body">
+    <div class="ambient" aria-hidden="true"></div>
+
+    <div class="s2-shell">
+      <header class="s2-topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 18 12 5l7 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 13.5h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-name">ATLAS</span>
+          <span class="brand-sub">STAGE 2 · CONFIGURATOR</span>
+        </div>
+
+        <div class="s2-project">
+          <span class="s2-project-kicker">当前需求</span>
+          <strong id="projectName">读取中…</strong>
+          <span class="s2-project-meta" id="projectMeta"></span>
+        </div>
+
+        <div class="s2-top-actions">
+          <button class="ghost-button" id="payloadBtn" type="button">需求 JSON</button>
+          <a class="ghost-button" href="./index.html">返回第一页</a>
+        </div>
+      </header>
+
+      <nav class="s2-tabs" role="tablist" aria-label="第二页视图">
+        <button class="s2-tab active" data-tab="compare" role="tab" aria-selected="true"><span>01</span>方案对比</button>
+        <button class="s2-tab" data-tab="explode" role="tab" aria-selected="false"><span>02</span>结构爆炸</button>
+        <button class="s2-tab" data-tab="risk" role="tab" aria-selected="false"><span>03</span>周期风险</button>
+        <button class="s2-tab" data-tab="team" role="tab" aria-selected="false"><span>04</span>人员协作</button>
+        <span class="s2-tab-note"><i class="s2-dot"></i>本地工作副本 · 未提交</span>
+      </nav>
+
+      <main class="s2-main">
+        <section class="s2-view" id="view-compare" role="tabpanel">
+          <div class="s2-layout">
+            <aside class="s2-panel s2-configurator" aria-label="用户自配器">
+              <div class="s2-panel-head">
+                <span class="kicker">USER CONFIGURATOR</span>
+                <h2>用户自配器</h2>
+                <p>点零件类型展开 4 个型号；选中型号加入当前用户方案。</p>
+              </div>
+
+              <div class="s2-create">
+                <button class="primary-button" id="fromSystemBtn" type="button">从系统推荐开始自配</button>
+                <button class="secondary-button" id="fromZeroBtn" type="button">从零开始自配</button>
+              </div>
+
+              <div class="s2-active" id="activeBar" hidden></div>
+              <div class="s2-tree" id="partTree"></div>
+
+              <div class="s2-panel-foot">
+                <span id="treeSummary">28 个零件类型</span>
+                <button class="s2-text-button" id="resetBtn" type="button">重置自配</button>
+              </div>
+            </aside>
+
+            <section class="s2-center" aria-label="方案对比">
+              <div class="s2-center-head">
+                <div>
+                  <span class="kicker">BUILD · COMPARE · DECIDE</span>
+                  <h1 class="s2-constraint-title" id="heroConstraints">正在读取硬约束…</h1>
+                  <p>系统推荐固定；用户自配从系统复制或从零开始，填满后才能对比。</p>
+                </div>
+                <div class="s2-compare-box">
+                  <button class="primary-button" id="compareBtn" type="button" disabled>开始对比</button>
+                  <span class="s2-hint" id="compareHint">先创建一个用户自配方案</span>
+                </div>
+              </div>
+
+              <div class="s2-matrix-wrap">
+                <div class="s2-matrix-scroll" id="matrixScroll">
+                  <table class="s2-matrix" id="matrix"></table>
+                </div>
+              </div>
+
+              <div class="s2-compare-summary" id="compareSummary" hidden></div>
+
+              <div class="s2-legend">
+                <span><i class="s2-warn-dot">!</i>不满足硬条件</span>
+                <span><i class="s2-lock-dot">·</i>系统推荐不可调</span>
+                <span>悬停格子看核心参数</span>
+                <span>横向滚动查看更多方案</span>
+              </div>
+            </section>
+
+            <aside class="s2-panel s2-inspector" id="inspector" aria-label="零件详情"></aside>
+          </div>
+        </section>
+
+        <section class="s2-view s2-placeholder-view" id="view-explode" role="tabpanel" hidden>
+          <div class="s2-placeholder">
+            <span class="kicker">02 · STRUCTURE EXPLODE</span>
+            <h2>结构爆炸 · 接口已预留</h2>
+            <p>这一屏暂不实现，先把数据接口留在这里。第三阶段接入时，把渲染函数挂到 <code>window.STAGE2_HOOKS.explode.mount</code>。</p>
+            <dl class="s2-contract">
+              <div><dt>挂载点</dt><dd><code>#view-explode</code></dd></div>
+              <div><dt>调用方式</dt><dd><code>STAGE2_HOOKS.explode.mount(el, ctx)</code></dd></div>
+              <div><dt>ctx 内容</dt><dd><code>{ payload, library, system, schemes, totals, helpers }</code></dd></div>
+              <div><dt>当前状态</dt><dd><span class="s2-pending">pending</span> 未接入</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="s2-view s2-placeholder-view" id="view-risk" role="tabpanel" hidden>
+          <div class="s2-placeholder">
+            <span class="kicker">03 · DELIVERY RISK</span>
+            <h2>周期风险 · 接口已预留</h2>
+            <p>这一屏暂不实现。后续用零件交期、关键路径与阶段门数据填充，渲染函数挂到 <code>window.STAGE2_HOOKS.risk.mount</code>。</p>
+            <dl class="s2-contract">
+              <div><dt>挂载点</dt><dd><code>#view-risk</code></dd></div>
+              <div><dt>调用方式</dt><dd><code>STAGE2_HOOKS.risk.mount(el, ctx)</code></dd></div>
+              <div><dt>可用数据</dt><dd><code>totals[].leadTime</code> · <code>constraints[]</code></dd></div>
+              <div><dt>当前状态</dt><dd><span class="s2-pending">pending</span> 未接入</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="s2-view s2-placeholder-view" id="view-team" role="tabpanel" hidden>
+          <div class="s2-placeholder">
+            <span class="kicker">04 · TEAM &amp; RACI</span>
+            <h2>人员协作 · 接口已预留</h2>
+            <p>这一屏暂不实现。后续接入里程碑、RACI 与阶段门评审，渲染函数挂到 <code>window.STAGE2_HOOKS.team.mount</code>。</p>
+            <dl class="s2-contract">
+              <div><dt>挂载点</dt><dd><code>#view-team</code></dd></div>
+              <div><dt>调用方式</dt><dd><code>STAGE2_HOOKS.team.mount(el, ctx)</code></dd></div>
+              <div><dt>可用数据</dt><dd><code>schemes[]</code> · <code>system</code> · <code>totals</code></dd></div>
+              <div><dt>当前状态</dt><dd><span class="s2-pending">pending</span> 未接入</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="s2-boot-error" id="bootError" hidden>
+          <span class="kicker">HANDOFF ERROR</span>
+          <h2 id="bootErrorTitle">没有拿到需求</h2>
+          <p id="bootErrorMessage"></p>
+          <div class="s2-boot-actions">
+            <button class="secondary-button" id="bootRetryBtn" type="button">重试</button>
+            <a class="primary-button" href="./index.html">回到第一页</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="s2-footnote">
+        <span>第二页 · 用户自配与方案对比</span>
+        <span class="foot-sep" aria-hidden="true">·</span>
+        <span>系统推荐 = 表1 基线；用户方案只在本页内存/会话中保留</span>
+        <span class="foot-sep" aria-hidden="true">·</span>
+        <a class="foot-link" href="./table1.html" target="_blank" rel="noopener">表1</a>
+      </footer>
+    </div>
+
+    <div class="s2-tooltip" id="tooltip" role="tooltip" hidden></div>
+
+    <div class="s2-modal" id="payloadModal" hidden>
+      <div class="s2-modal-backdrop" data-close="1"></div>
+      <div class="s2-modal-card" role="dialog" aria-modal="true" aria-labelledby="payloadTitle">
+        <header class="s2-modal-head">
+          <div>
+            <span class="kicker">REQUIREMENT PAYLOAD</span>
+            <h2 id="payloadTitle">第一页交来的需求 JSON</h2>
+          </div>
+          <button class="s2-modal-close" type="button" data-close="1" aria-label="关闭">×</button>
+        </header>
+        <pre class="s2-payload-code" id="payloadJson"></pre>
+        <div class="s2-modal-actions">
+          <button class="secondary-button" id="copyPayloadBtn" type="button">复制 JSON</button>
+          <button class="primary-button" type="button" data-close="1">关闭</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script src="./next.js" defer></script>
+  </body>
+</html>

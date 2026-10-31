@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>ATLAS · 需求规范化</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0f14'/%3E%3Cpath d='M8 22 16 8l8 14' stroke='%236ee7d0' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 18 12 5l7 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 13.5h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-name">ATLAS</span>
+          <span class="brand-sub">REQUIREMENT INTAKE</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="my-button" id="myBtn" type="button" hidden title="我的：身份码与历史产品">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 19.5c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <span>我的</span>
+          </button>
+          <span class="mode-badge" id="modeBadge" title="AI 接入模式">初始化…</span>
+          <button class="ghost-button" id="resetBtn" type="button">重置</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <p class="kicker">REQUIREMENT BASELINE · V2</p>
+        <h1>自然语言进，<em>可逐条确认</em>的要求出</h1>
+        <p class="lede">
+          三个问题：做什么、哪些条件不能让步、原材料拆到哪一层。AI 的每一条输出都要经过预设函数校验，再由你逐条勾选。
+        </p>
+      </section>
+
+      <section class="identity-card" id="identityStage" hidden aria-label="身份码"></section>
+
+      <nav class="stepper" id="stepper" aria-label="问题进度"></nav>
+
+      <main class="stage" id="stage">
+        <section class="question-card" id="questionCard" aria-labelledby="questionTitle">
+          <div class="card-head">
+            <span class="q-eyebrow" id="questionEyebrow">Q1 / 商品类型</span>
+            <span class="q-status" id="questionStatus">未开始</span>
+          </div>
+          <h2 id="questionTitle">加载中…</h2>
+          <p class="q-prompt" id="questionPrompt"></p>
+
+          <div class="examples" id="examples" aria-label="示例"></div>
+
+          <label class="sr-only" for="answerInput">用自然语言描述</label>
+          <div class="input-wrap">
+            <textarea
+              id="answerInput"
+              rows="5"
+              maxlength="2000"
+              spellcheck="false"
+              placeholder="用自然语言描述…"
+            ></textarea>
+            <div class="input-foot">
+              <span class="char-count" id="charCount">0 / 2000</span>
+              <span class="keyhint">Ctrl / ⌘ + Enter 提交</span>
+            </div>
+          </div>
+
+          <div class="helper-row">
+            <p class="helper" id="helper"></p>
+            <div class="submit-row">
+              <button class="secondary-button" id="reopenBtn" type="button" hidden>查看上次结果</button>
+              <button class="primary-button" id="submitBtn" type="button">
+                <span class="btn-label">交给 AI 规范化</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+
+          <p class="error-box" id="errorBox" role="alert" hidden></p>
+        </section>
+
+        <section class="summary-card" id="summaryCard" hidden aria-labelledby="summaryTitle"></section>
+        <section class="summary-card naming-card" id="namingCard" hidden aria-labelledby="namingTitle"></section>
+      </main>
+
+      <footer class="footnote">
+        <span>所有 AI 输出仅通过 <code>submit_product_type</code> / <code>submit_hard_constraints</code> / <code>submit_parts</code> 三个预设函数进入系统。</span>
+        <span class="foot-sep" aria-hidden="true">·</span>
+        <a class="foot-link" id="tableLink" href="./table1.html" target="_blank" rel="noopener" title="查看表1：预设商品类型与拆解层级">表1</a>
+      </footer>
+    </div>
+
+    <div id="modalRoot"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

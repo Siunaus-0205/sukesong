@@ -1,0 +1,4837 @@
+{
+  "$comment": [
+    "JSON 不支持注释，所以格式说明统一放在顶层 $comment。",
+    "H3 手持云台 · 第二页「用户自配器」零件库",
+    "结构：modules[] → parts[]（零件类型）→ variants[]（4 个可选型号）。",
+    "每个零件类型的 variants[0] 是系统推荐基线；其余三个为轻量 / 增强 / 旗舰。",
+    "字段：price = 原型单价（CNY）；weight = 单件重量（g）；leadTime = 采购/加工周期（天）；risk = 低 / 中 / 高。",
+    "params = 悬停提示与右侧详情显示的核心参数，可自由增删；description = 零件说明。",
+    "改本文件不需要改前端代码；新增零件类型时，code 必须与 presets/table1.json 的 L3 编码一致。",
+    "数量 qty 来自表格；成本与重量按 qty 计入方案合计。"
+  ],
+  "schemaVersion": "atlas.stage2-parts/v1",
+  "productType": "h3",
+  "currency": "CNY",
+  "units": {
+    "price": "CNY",
+    "weight": "g",
+    "leadTime": "day"
+  },
+  "tiers": [
+    {
+      "key": "std",
+      "label": "标准",
+      "priceMultiplier": 1,
+      "weightMultiplier": 1,
+      "leadTimeOffset": 0,
+      "note": "沿用基线规格，成本与风险最低。"
+    },
+    {
+      "key": "lite",
+      "label": "轻量",
+      "priceMultiplier": 1.06,
+      "weightMultiplier": 0.82,
+      "leadTimeOffset": 3,
+      "note": "减重优先，单价与交期略增。"
+    },
+    {
+      "key": "plus",
+      "label": "增强",
+      "priceMultiplier": 1.18,
+      "weightMultiplier": 1.08,
+      "leadTimeOffset": 6,
+      "note": "性能提升，重量与成本上浮。"
+    },
+    {
+      "key": "pro",
+      "label": "旗舰",
+      "priceMultiplier": 1.38,
+      "weightMultiplier": 1.18,
+      "leadTimeOffset": 10,
+      "note": "规格拉满，成本与交期最高。"
+    }
+  ],
+  "modules": [
+    {
+      "code": "h3-cam",
+      "name": "相机与成像",
+      "index": 1,
+      "parts": [
+        {
+          "code": "h3-cam-01",
+          "name": "相机模组",
+          "qty": 1,
+          "baselineVariantId": "h3-cam-01-std",
+          "description": "光学、传感器与 ISP 的集成体，可整体采购与校准。",
+          "variants": [
+            {
+              "id": "h3-cam-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "相机模组 · 标准",
+              "price": 680,
+              "weight": 48,
+              "leadTime": 20,
+              "risk": "低",
+              "material": "模组",
+              "spec": "1/2.3″ · 4K60",
+              "owner": "影像 / 林澈",
+              "description": "光学、传感器与 ISP 的集成体，可整体采购与校准。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/2.3″ · 4K60"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 680"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "48 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "20 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "相机模组 · 轻量",
+              "price": 721,
+              "weight": 39.4,
+              "leadTime": 23,
+              "risk": "低",
+              "material": "模组",
+              "spec": "1/2.3″ · 4K60 · 轻量",
+              "owner": "影像 / 林澈",
+              "description": "光学、传感器与 ISP 的集成体，可整体采购与校准。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/2.3″ · 4K60 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 721"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "39.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "23 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "相机模组 · 增强",
+              "price": 802,
+              "weight": 51.8,
+              "leadTime": 26,
+              "risk": "中",
+              "material": "模组",
+              "spec": "1/1.7″ · 4K60",
+              "owner": "影像 / 林澈",
+              "description": "光学、传感器与 ISP 的集成体，可整体采购与校准。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/1.7″ · 4K60"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 802"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "51.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "26 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "相机模组 · 旗舰",
+              "price": 938,
+              "weight": 56.6,
+              "leadTime": 30,
+              "risk": "中",
+              "material": "模组",
+              "spec": "1/1.7″ · 4K120",
+              "owner": "影像 / 林澈",
+              "description": "光学、传感器与 ISP 的集成体，可整体采购与校准。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/1.7″ · 4K120"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 938"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "56.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-cam-02",
+          "name": "镜头与滤光片",
+          "qty": 1,
+          "baselineVariantId": "h3-cam-02-std",
+          "description": "镜片组与 IR 滤光片，决定视场角与进光量。",
+          "variants": [
+            {
+              "id": "h3-cam-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "镜头与滤光片 · 标准",
+              "price": 160,
+              "weight": 20,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "光学玻璃",
+              "spec": "EFL 12 mm",
+              "owner": "影像 / 林澈",
+              "description": "镜片组与 IR 滤光片，决定视场角与进光量。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "EFL 12 mm"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 160"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "20 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "镜头与滤光片 · 轻量",
+              "price": 170,
+              "weight": 16.4,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "光学玻璃",
+              "spec": "EFL 12 mm · 轻量",
+              "owner": "影像 / 林澈",
+              "description": "镜片组与 IR 滤光片，决定视场角与进光量。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "EFL 12 mm · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 170"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "16.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "镜头与滤光片 · 增强",
+              "price": 189,
+              "weight": 21.6,
+              "leadTime": 31,
+              "risk": "高",
+              "material": "光学玻璃",
+              "spec": "EFL 10 mm",
+              "owner": "影像 / 林澈",
+              "description": "镜片组与 IR 滤光片，决定视场角与进光量。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "EFL 10 mm"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 189"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "21.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "镜头与滤光片 · 旗舰",
+              "price": 221,
+              "weight": 23.6,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "光学玻璃",
+              "spec": "EFL 10 mm · 低畸变",
+              "owner": "影像 / 林澈",
+              "description": "镜片组与 IR 滤光片，决定视场角与进光量。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "EFL 10 mm · 低畸变"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 221"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "23.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-cam-03",
+          "name": "图像传感器板",
+          "qty": 1,
+          "baselineVariantId": "h3-cam-03-std",
+          "description": "承载 CMOS 与 ISP 的电路板，含图像输出接口。",
+          "variants": [
+            {
+              "id": "h3-cam-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "图像传感器板 · 标准",
+              "price": 240,
+              "weight": 14,
+              "leadTime": 30,
+              "risk": "中",
+              "material": "6 层 PCB",
+              "spec": "MIPI · 4 Lane",
+              "owner": "电子 / 周予",
+              "description": "承载 CMOS 与 ISP 的电路板，含图像输出接口。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "MIPI · 4 Lane"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 240"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "14 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "图像传感器板 · 轻量",
+              "price": 254,
+              "weight": 11.5,
+              "leadTime": 33,
+              "risk": "中",
+              "material": "6 层 PCB",
+              "spec": "MIPI · 2 Lane",
+              "owner": "电子 / 周予",
+              "description": "承载 CMOS 与 ISP 的电路板，含图像输出接口。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "MIPI · 2 Lane"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 254"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "11.5 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "33 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "图像传感器板 · 增强",
+              "price": 283,
+              "weight": 15.1,
+              "leadTime": 36,
+              "risk": "高",
+              "material": "6 层 PCB",
+              "spec": "MIPI · 4 Lane · ISP+",
+              "owner": "电子 / 周予",
+              "description": "承载 CMOS 与 ISP 的电路板，含图像输出接口。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "MIPI · 4 Lane · ISP+"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 283"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "15.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "36 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "图像传感器板 · 旗舰",
+              "price": 331,
+              "weight": 16.5,
+              "leadTime": 40,
+              "risk": "高",
+              "material": "6 层 PCB",
+              "spec": "MIPI · 4 Lane · 双路",
+              "owner": "电子 / 周予",
+              "description": "承载 CMOS 与 ISP 的电路板，含图像输出接口。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "MIPI · 4 Lane · 双路"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 331"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "16.5 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "40 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-cam-04",
+          "name": "散热支架",
+          "qty": 1,
+          "baselineVariantId": "h3-cam-04-std",
+          "description": "相机模组的结构支撑兼导热件，抑制长时间录制温升。",
+          "variants": [
+            {
+              "id": "h3-cam-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "散热支架 · 标准",
+              "price": 36,
+              "weight": 10,
+              "leadTime": 22,
+              "risk": "低",
+              "material": "AL6061",
+              "spec": "阳极氧化",
+              "owner": "结构 / 陈屿",
+              "description": "相机模组的结构支撑兼导热件，抑制长时间录制温升。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "阳极氧化"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 36"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "10 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "22 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "散热支架 · 轻量",
+              "price": 38,
+              "weight": 8.2,
+              "leadTime": 25,
+              "risk": "低",
+              "material": "AL6061",
+              "spec": "AL6061 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "相机模组的结构支撑兼导热件，抑制长时间录制温升。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "AL6061 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 38"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "8.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "散热支架 · 增强",
+              "price": 42,
+              "weight": 10.8,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "AL6061",
+              "spec": "阳极氧化 + 石墨",
+              "owner": "结构 / 陈屿",
+              "description": "相机模组的结构支撑兼导热件，抑制长时间录制温升。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "阳极氧化 + 石墨"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 42"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "10.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-cam-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "散热支架 · 旗舰",
+              "price": 50,
+              "weight": 11.8,
+              "leadTime": 32,
+              "risk": "中",
+              "material": "AL6061",
+              "spec": "阳极氧化 + VC",
+              "owner": "结构 / 陈屿",
+              "description": "相机模组的结构支撑兼导热件，抑制长时间录制温升。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "阳极氧化 + VC"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 50"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "11.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "32 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "h3-pit",
+      "name": "俯仰轴总成",
+      "index": 2,
+      "parts": [
+        {
+          "code": "h3-pit-01",
+          "name": "俯仰无刷电机",
+          "qty": 1,
+          "baselineVariantId": "h3-pit-01-std",
+          "description": "驱动俯仰轴的无刷电机，含霍尔/编码反馈。",
+          "variants": [
+            {
+              "id": "h3-pit-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "俯仰无刷电机 · 标准",
+              "price": 86,
+              "weight": 58,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 280Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动俯仰轴的无刷电机，含霍尔/编码反馈。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 280Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 86"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "58 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "俯仰无刷电机 · 轻量",
+              "price": 91,
+              "weight": 47.6,
+              "leadTime": 38,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 280Ω · 轻量",
+              "owner": "电子 / 周予",
+              "description": "驱动俯仰轴的无刷电机，含霍尔/编码反馈。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 280Ω · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 91"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "47.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "38 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "俯仰无刷电机 · 增强",
+              "price": 101,
+              "weight": 62.6,
+              "leadTime": 41,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 320Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动俯仰轴的无刷电机，含霍尔/编码反馈。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 320Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 101"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "62.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "41 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "俯仰无刷电机 · 旗舰",
+              "price": 119,
+              "weight": 68.4,
+              "leadTime": 45,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 360Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动俯仰轴的无刷电机，含霍尔/编码反馈。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 360Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 119"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "68.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "45 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-pit-02",
+          "name": "俯仰轴臂",
+          "qty": 1,
+          "baselineVariantId": "h3-pit-02-std",
+          "description": "连接俯仰电机与相机端的结构臂，决定轴长与刚度。",
+          "variants": [
+            {
+              "id": "h3-pit-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "俯仰轴臂 · 标准",
+              "price": 42,
+              "weight": 34,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "AL7075",
+              "spec": "T6 · 硬质阳极",
+              "owner": "结构 / 陈屿",
+              "description": "连接俯仰电机与相机端的结构臂，决定轴长与刚度。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 硬质阳极"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 42"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "34 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "俯仰轴臂 · 轻量",
+              "price": 45,
+              "weight": 27.9,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "AL7075",
+              "spec": "T6 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "连接俯仰电机与相机端的结构臂，决定轴长与刚度。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 45"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "27.9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "俯仰轴臂 · 增强",
+              "price": 50,
+              "weight": 36.7,
+              "leadTime": 31,
+              "risk": "高",
+              "material": "AL7075",
+              "spec": "T6 · 加强筋",
+              "owner": "结构 / 陈屿",
+              "description": "连接俯仰电机与相机端的结构臂，决定轴长与刚度。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 加强筋"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 50"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "36.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "俯仰轴臂 · 旗舰",
+              "price": 58,
+              "weight": 40.1,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "AL7075",
+              "spec": "T6 + 碳纤",
+              "owner": "结构 / 陈屿",
+              "description": "连接俯仰电机与相机端的结构臂，决定轴长与刚度。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 + 碳纤"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 58"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "40.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-pit-03",
+          "name": "姿态传感 IMU-A",
+          "qty": 1,
+          "baselineVariantId": "h3-pit-03-std",
+          "description": "俯仰轴的姿态检测单元，输出角速度与角度。",
+          "variants": [
+            {
+              "id": "h3-pit-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "姿态传感 IMU-A · 标准",
+              "price": 58,
+              "weight": 4,
+              "leadTime": 28,
+              "risk": "高",
+              "material": "MEMS",
+              "spec": "6 轴 · 1 kHz",
+              "owner": "固件 / 苏航",
+              "description": "俯仰轴的姿态检测单元，输出角速度与角度。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "6 轴 · 1 kHz"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 58"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "姿态传感 IMU-A · 轻量",
+              "price": 61,
+              "weight": 3.3,
+              "leadTime": 31,
+              "risk": "高",
+              "material": "MEMS",
+              "spec": "6 轴 · 1 kHz · 低功耗",
+              "owner": "固件 / 苏航",
+              "description": "俯仰轴的姿态检测单元，输出角速度与角度。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "6 轴 · 1 kHz · 低功耗"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 61"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "3.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "姿态传感 IMU-A · 增强",
+              "price": 68,
+              "weight": 4.3,
+              "leadTime": 34,
+              "risk": "高",
+              "material": "MEMS",
+              "spec": "6 轴 · 2 kHz",
+              "owner": "固件 / 苏航",
+              "description": "俯仰轴的姿态检测单元，输出角速度与角度。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "6 轴 · 2 kHz"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 68"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "34 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "姿态传感 IMU-A · 旗舰",
+              "price": 80,
+              "weight": 4.7,
+              "leadTime": 38,
+              "risk": "高",
+              "material": "MEMS",
+              "spec": "6 轴 · 2 kHz · 冗余",
+              "owner": "固件 / 苏航",
+              "description": "俯仰轴的姿态检测单元，输出角速度与角度。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "6 轴 · 2 kHz · 冗余"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 80"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "38 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-pit-04",
+          "name": "微型轴承",
+          "qty": 2,
+          "baselineVariantId": "h3-pit-04-std",
+          "description": "俯仰轴支承轴承，影响回差与顺滑度。",
+          "variants": [
+            {
+              "id": "h3-pit-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "微型轴承 · 标准",
+              "price": 12,
+              "weight": 2,
+              "leadTime": 12,
+              "risk": "低",
+              "material": "P5 轴承钢",
+              "spec": "Ø8 × Ø3 × 4",
+              "owner": "结构 / 陈屿",
+              "description": "俯仰轴支承轴承，影响回差与顺滑度。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "Ø8 × Ø3 × 4"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 12"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "12 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "微型轴承 · 轻量",
+              "price": 13,
+              "weight": 1.6,
+              "leadTime": 15,
+              "risk": "低",
+              "material": "P5 轴承钢",
+              "spec": "Ø8 × Ø3 × 4 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "俯仰轴支承轴承，影响回差与顺滑度。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "Ø8 × Ø3 × 4 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 13"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "1.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "15 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "微型轴承 · 增强",
+              "price": 14,
+              "weight": 2.2,
+              "leadTime": 18,
+              "risk": "中",
+              "material": "P5 轴承钢",
+              "spec": "Ø8 × Ø3 × 4 · 高刚",
+              "owner": "结构 / 陈屿",
+              "description": "俯仰轴支承轴承，影响回差与顺滑度。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "Ø8 × Ø3 × 4 · 高刚"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 14"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "2.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "18 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pit-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "微型轴承 · 旗舰",
+              "price": 17,
+              "weight": 2.4,
+              "leadTime": 22,
+              "risk": "中",
+              "material": "P5 轴承钢",
+              "spec": "Ø8 × Ø3 × 4 · P4",
+              "owner": "结构 / 陈屿",
+              "description": "俯仰轴支承轴承，影响回差与顺滑度。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "Ø8 × Ø3 × 4 · P4"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 17"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "2.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "22 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "h3-rol",
+      "name": "横滚轴总成",
+      "index": 3,
+      "parts": [
+        {
+          "code": "h3-rol-01",
+          "name": "横滚无刷电机",
+          "qty": 1,
+          "baselineVariantId": "h3-rol-01-std",
+          "description": "驱动横滚轴的无刷电机。",
+          "variants": [
+            {
+              "id": "h3-rol-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "横滚无刷电机 · 标准",
+              "price": 86,
+              "weight": 58,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 280Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动横滚轴的无刷电机。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 280Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 86"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "58 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "横滚无刷电机 · 轻量",
+              "price": 91,
+              "weight": 47.6,
+              "leadTime": 38,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 280Ω · 轻量",
+              "owner": "电子 / 周予",
+              "description": "驱动横滚轴的无刷电机。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 280Ω · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 91"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "47.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "38 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "横滚无刷电机 · 增强",
+              "price": 101,
+              "weight": 62.6,
+              "leadTime": 41,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 320Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动横滚轴的无刷电机。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 320Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 101"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "62.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "41 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "横滚无刷电机 · 旗舰",
+              "price": 119,
+              "weight": 68.4,
+              "leadTime": 45,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 360Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动横滚轴的无刷电机。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 360Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 119"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "68.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "45 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-rol-02",
+          "name": "横滚轴臂",
+          "qty": 1,
+          "baselineVariantId": "h3-rol-02-std",
+          "description": "横滚轴与俯仰轴之间的连接臂。",
+          "variants": [
+            {
+              "id": "h3-rol-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "横滚轴臂 · 标准",
+              "price": 46,
+              "weight": 32,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "AL7075",
+              "spec": "T6 · 硬质阳极",
+              "owner": "结构 / 陈屿",
+              "description": "横滚轴与俯仰轴之间的连接臂。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 硬质阳极"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 46"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "32 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "横滚轴臂 · 轻量",
+              "price": 49,
+              "weight": 26.2,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "AL7075",
+              "spec": "T6 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "横滚轴与俯仰轴之间的连接臂。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 49"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "26.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "横滚轴臂 · 增强",
+              "price": 54,
+              "weight": 34.6,
+              "leadTime": 31,
+              "risk": "高",
+              "material": "AL7075",
+              "spec": "T6 · 加强筋",
+              "owner": "结构 / 陈屿",
+              "description": "横滚轴与俯仰轴之间的连接臂。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 加强筋"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 54"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "34.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "横滚轴臂 · 旗舰",
+              "price": 63,
+              "weight": 37.8,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "AL7075",
+              "spec": "T6 + 碳纤",
+              "owner": "结构 / 陈屿",
+              "description": "横滚轴与俯仰轴之间的连接臂。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 + 碳纤"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 63"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "37.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-rol-03",
+          "name": "滑环线束",
+          "qty": 1,
+          "baselineVariantId": "h3-rol-03-std",
+          "description": "跨轴旋转导电的滑环与线束，保证连续 360° 供电与信号。",
+          "variants": [
+            {
+              "id": "h3-rol-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "滑环线束 · 标准",
+              "price": 28,
+              "weight": 9,
+              "leadTime": 30,
+              "risk": "中",
+              "material": "FPC + 硅胶线",
+              "spec": "8 Pin · 90°",
+              "owner": "电子 / 周予",
+              "description": "跨轴旋转导电的滑环与线束，保证连续 360° 供电与信号。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "8 Pin · 90°"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 28"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "滑环线束 · 轻量",
+              "price": 30,
+              "weight": 7.4,
+              "leadTime": 33,
+              "risk": "中",
+              "material": "FPC + 硅胶线",
+              "spec": "8 Pin · 90° · 细径",
+              "owner": "电子 / 周予",
+              "description": "跨轴旋转导电的滑环与线束，保证连续 360° 供电与信号。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "8 Pin · 90° · 细径"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 30"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "7.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "33 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "滑环线束 · 增强",
+              "price": 33,
+              "weight": 9.7,
+              "leadTime": 36,
+              "risk": "高",
+              "material": "FPC + 硅胶线",
+              "spec": "8 Pin · 90° · 屏蔽",
+              "owner": "电子 / 周予",
+              "description": "跨轴旋转导电的滑环与线束，保证连续 360° 供电与信号。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "8 Pin · 90° · 屏蔽"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 33"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "9.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "36 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "滑环线束 · 旗舰",
+              "price": 39,
+              "weight": 10.6,
+              "leadTime": 40,
+              "risk": "高",
+              "material": "FPC + 硅胶线",
+              "spec": "12 Pin · 90°",
+              "owner": "电子 / 周予",
+              "description": "跨轴旋转导电的滑环与线束，保证连续 360° 供电与信号。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12 Pin · 90°"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 39"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "10.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "40 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-rol-04",
+          "name": "机械限位件",
+          "qty": 2,
+          "baselineVariantId": "h3-rol-04-std",
+          "description": "限制横滚轴行程的机械挡块，防止线束过扭。",
+          "variants": [
+            {
+              "id": "h3-rol-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "机械限位件 · 标准",
+              "price": 8,
+              "weight": 4,
+              "leadTime": 15,
+              "risk": "低",
+              "material": "SUS304",
+              "spec": "±165°",
+              "owner": "结构 / 陈屿",
+              "description": "限制横滚轴行程的机械挡块，防止线束过扭。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "±165°"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 8"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "15 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "机械限位件 · 轻量",
+              "price": 9,
+              "weight": 3.3,
+              "leadTime": 18,
+              "risk": "低",
+              "material": "SUS304",
+              "spec": "±165° · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "限制横滚轴行程的机械挡块，防止线束过扭。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "±165° · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 9"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "3.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "18 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "机械限位件 · 增强",
+              "price": 9,
+              "weight": 4.3,
+              "leadTime": 21,
+              "risk": "中",
+              "material": "SUS304",
+              "spec": "±165° · 缓冲",
+              "owner": "结构 / 陈屿",
+              "description": "限制横滚轴行程的机械挡块，防止线束过扭。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "±165° · 缓冲"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 9"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "21 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-rol-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "机械限位件 · 旗舰",
+              "price": 11,
+              "weight": 4.7,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "SUS304",
+              "spec": "±180° · 缓冲",
+              "owner": "结构 / 陈屿",
+              "description": "限制横滚轴行程的机械挡块，防止线束过扭。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×2"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "±180° · 缓冲"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 11"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "h3-yaw",
+      "name": "航向轴总成",
+      "index": 4,
+      "parts": [
+        {
+          "code": "h3-yaw-01",
+          "name": "航向无刷电机",
+          "qty": 1,
+          "baselineVariantId": "h3-yaw-01-std",
+          "description": "驱动航向轴的无刷电机。",
+          "variants": [
+            {
+              "id": "h3-yaw-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "航向无刷电机 · 标准",
+              "price": 92,
+              "weight": 62,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 320Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动航向轴的无刷电机。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 320Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 92"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "62 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "航向无刷电机 · 轻量",
+              "price": 98,
+              "weight": 50.8,
+              "leadTime": 38,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 320Ω · 轻量",
+              "owner": "电子 / 周予",
+              "description": "驱动航向轴的无刷电机。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 320Ω · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 98"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "50.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "38 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "航向无刷电机 · 增强",
+              "price": 109,
+              "weight": 67,
+              "leadTime": 41,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 360Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动航向轴的无刷电机。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 360Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 109"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "67 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "41 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "航向无刷电机 · 旗舰",
+              "price": 127,
+              "weight": 73.2,
+              "leadTime": 45,
+              "risk": "高",
+              "material": "外转子 BLDC",
+              "spec": "12N14P · 400Ω",
+              "owner": "电子 / 周予",
+              "description": "驱动航向轴的无刷电机。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "12N14P · 400Ω"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 127"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "73.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "45 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-yaw-02",
+          "name": "航向轴臂",
+          "qty": 1,
+          "baselineVariantId": "h3-yaw-02-std",
+          "description": "航向轴与手柄之间的连接臂。",
+          "variants": [
+            {
+              "id": "h3-yaw-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "航向轴臂 · 标准",
+              "price": 48,
+              "weight": 36,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "AL7075",
+              "spec": "T6 · 硬质阳极",
+              "owner": "结构 / 陈屿",
+              "description": "航向轴与手柄之间的连接臂。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 硬质阳极"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 48"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "36 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "航向轴臂 · 轻量",
+              "price": 51,
+              "weight": 29.5,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "AL7075",
+              "spec": "T6 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "航向轴与手柄之间的连接臂。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 51"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "29.5 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "航向轴臂 · 增强",
+              "price": 57,
+              "weight": 38.9,
+              "leadTime": 31,
+              "risk": "高",
+              "material": "AL7075",
+              "spec": "T6 · 加强筋",
+              "owner": "结构 / 陈屿",
+              "description": "航向轴与手柄之间的连接臂。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 · 加强筋"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 57"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "38.9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "航向轴臂 · 旗舰",
+              "price": 66,
+              "weight": 42.5,
+              "leadTime": 35,
+              "risk": "高",
+              "material": "AL7075",
+              "spec": "T6 + 碳纤",
+              "owner": "结构 / 陈屿",
+              "description": "航向轴与手柄之间的连接臂。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "T6 + 碳纤"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 66"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "42.5 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "35 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-yaw-03",
+          "name": "磁性编码器",
+          "qty": 1,
+          "baselineVariantId": "h3-yaw-03-std",
+          "description": "航向角的高精度磁编码反馈元件。",
+          "variants": [
+            {
+              "id": "h3-yaw-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "磁性编码器 · 标准",
+              "price": 64,
+              "weight": 5,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "14 bit ABS",
+              "spec": "SPI · 14 bit",
+              "owner": "固件 / 苏航",
+              "description": "航向角的高精度磁编码反馈元件。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "SPI · 14 bit"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 64"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "5 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "磁性编码器 · 轻量",
+              "price": 68,
+              "weight": 4.1,
+              "leadTime": 31,
+              "risk": "中",
+              "material": "14 bit ABS",
+              "spec": "SPI · 14 bit · 低功耗",
+              "owner": "固件 / 苏航",
+              "description": "航向角的高精度磁编码反馈元件。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "SPI · 14 bit · 低功耗"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 68"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "磁性编码器 · 增强",
+              "price": 76,
+              "weight": 5.4,
+              "leadTime": 34,
+              "risk": "高",
+              "material": "14 bit ABS",
+              "spec": "SPI · 16 bit",
+              "owner": "固件 / 苏航",
+              "description": "航向角的高精度磁编码反馈元件。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "SPI · 16 bit"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 76"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "5.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "34 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "磁性编码器 · 旗舰",
+              "price": 88,
+              "weight": 5.9,
+              "leadTime": 38,
+              "risk": "高",
+              "material": "14 bit ABS",
+              "spec": "SPI · 16 bit · 冗余",
+              "owner": "固件 / 苏航",
+              "description": "航向角的高精度磁编码反馈元件。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "SPI · 16 bit · 冗余"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 88"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "5.9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "38 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-yaw-04",
+          "name": "锁紧螺钉组",
+          "qty": 6,
+          "baselineVariantId": "h3-yaw-04-std",
+          "description": "轴系与结构件的锁紧螺钉组合，含防松处理。",
+          "variants": [
+            {
+              "id": "h3-yaw-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "锁紧螺钉组 · 标准",
+              "price": 6,
+              "weight": 1,
+              "leadTime": 10,
+              "risk": "低",
+              "material": "12.9 级合金钢",
+              "spec": "M2 / M2.5",
+              "owner": "结构 / 陈屿",
+              "description": "轴系与结构件的锁紧螺钉组合，含防松处理。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×6"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "M2 / M2.5"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 6"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "10 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "锁紧螺钉组 · 轻量",
+              "price": 7,
+              "weight": 0.8,
+              "leadTime": 13,
+              "risk": "低",
+              "material": "12.9 级合金钢",
+              "spec": "M2 / M2.5 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "轴系与结构件的锁紧螺钉组合，含防松处理。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×6"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "M2 / M2.5 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 7"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "0.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "13 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "锁紧螺钉组 · 增强",
+              "price": 7,
+              "weight": 1.1,
+              "leadTime": 16,
+              "risk": "中",
+              "material": "12.9 级合金钢",
+              "spec": "M2 / M2.5 · 防松",
+              "owner": "结构 / 陈屿",
+              "description": "轴系与结构件的锁紧螺钉组合，含防松处理。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×6"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "M2 / M2.5 · 防松"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 7"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "1.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "16 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-yaw-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "锁紧螺钉组 · 旗舰",
+              "price": 8,
+              "weight": 1.2,
+              "leadTime": 20,
+              "risk": "中",
+              "material": "12.9 级合金钢",
+              "spec": "M2 / M2.5 · 钛合金",
+              "owner": "结构 / 陈屿",
+              "description": "轴系与结构件的锁紧螺钉组合，含防松处理。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×6"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "M2 / M2.5 · 钛合金"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 8"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "1.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "20 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "h3-hnd",
+      "name": "手柄与人机",
+      "index": 5,
+      "parts": [
+        {
+          "code": "h3-hnd-01",
+          "name": "手柄前壳",
+          "qty": 1,
+          "baselineVariantId": "h3-hnd-01-std",
+          "description": "手柄正面外壳，承载按键与屏幕开孔。",
+          "variants": [
+            {
+              "id": "h3-hnd-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "手柄前壳 · 标准",
+              "price": 32,
+              "weight": 56,
+              "leadTime": 22,
+              "risk": "中",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂",
+              "owner": "工业 / 唐可",
+              "description": "手柄正面外壳，承载按键与屏幕开孔。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 32"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "56 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "22 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "手柄前壳 · 轻量",
+              "price": 34,
+              "weight": 45.9,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂 · 薄壁",
+              "owner": "工业 / 唐可",
+              "description": "手柄正面外壳，承载按键与屏幕开孔。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂 · 薄壁"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 34"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "45.9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "手柄前壳 · 增强",
+              "price": 38,
+              "weight": 60.5,
+              "leadTime": 28,
+              "risk": "高",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂 · 加强",
+              "owner": "工业 / 唐可",
+              "description": "手柄正面外壳，承载按键与屏幕开孔。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂 · 加强"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 38"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "60.5 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "手柄前壳 · 旗舰",
+              "price": 44,
+              "weight": 66.1,
+              "leadTime": 32,
+              "risk": "高",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂 · 镁合金",
+              "owner": "工业 / 唐可",
+              "description": "手柄正面外壳，承载按键与屏幕开孔。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂 · 镁合金"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 44"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "66.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "32 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-hnd-02",
+          "name": "手柄后壳",
+          "qty": 1,
+          "baselineVariantId": "h3-hnd-02-std",
+          "description": "手柄背面外壳，与前后壳合模形成握持腔体。",
+          "variants": [
+            {
+              "id": "h3-hnd-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "手柄后壳 · 标准",
+              "price": 32,
+              "weight": 52,
+              "leadTime": 22,
+              "risk": "中",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂",
+              "owner": "工业 / 唐可",
+              "description": "手柄背面外壳，与前后壳合模形成握持腔体。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 32"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "52 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "22 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "手柄后壳 · 轻量",
+              "price": 34,
+              "weight": 42.6,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂 · 薄壁",
+              "owner": "工业 / 唐可",
+              "description": "手柄背面外壳，与前后壳合模形成握持腔体。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂 · 薄壁"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 34"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "42.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "手柄后壳 · 增强",
+              "price": 38,
+              "weight": 56.2,
+              "leadTime": 28,
+              "risk": "高",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂 · 加强",
+              "owner": "工业 / 唐可",
+              "description": "手柄背面外壳，与前后壳合模形成握持腔体。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂 · 加强"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 38"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "56.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "手柄后壳 · 旗舰",
+              "price": 44,
+              "weight": 61.4,
+              "leadTime": 32,
+              "risk": "高",
+              "material": "PC + ABS",
+              "spec": "V0 · 细磨砂 · 镁合金",
+              "owner": "工业 / 唐可",
+              "description": "手柄背面外壳，与前后壳合模形成握持腔体。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "V0 · 细磨砂 · 镁合金"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 44"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "61.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "32 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-hnd-03",
+          "name": "握持胶套",
+          "qty": 1,
+          "baselineVariantId": "h3-hnd-03-std",
+          "description": "包覆手柄的防滑软胶件，改善握持与跌落缓冲。",
+          "variants": [
+            {
+              "id": "h3-hnd-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "握持胶套 · 标准",
+              "price": 18,
+              "weight": 32,
+              "leadTime": 18,
+              "risk": "低",
+              "material": "TPE 65A",
+              "spec": "纹理 0.4 mm",
+              "owner": "工业 / 唐可",
+              "description": "包覆手柄的防滑软胶件，改善握持与跌落缓冲。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "纹理 0.4 mm"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 18"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "32 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "18 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "握持胶套 · 轻量",
+              "price": 19,
+              "weight": 26.2,
+              "leadTime": 21,
+              "risk": "低",
+              "material": "TPE 65A",
+              "spec": "纹理 0.4 mm · 薄型",
+              "owner": "工业 / 唐可",
+              "description": "包覆手柄的防滑软胶件，改善握持与跌落缓冲。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "纹理 0.4 mm · 薄型"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 19"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "26.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "21 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "握持胶套 · 增强",
+              "price": 21,
+              "weight": 34.6,
+              "leadTime": 24,
+              "risk": "中",
+              "material": "TPE 65A",
+              "spec": "纹理 0.6 mm",
+              "owner": "工业 / 唐可",
+              "description": "包覆手柄的防滑软胶件，改善握持与跌落缓冲。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "纹理 0.6 mm"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 21"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "34.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "24 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "握持胶套 · 旗舰",
+              "price": 25,
+              "weight": 37.8,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "TPE 65A",
+              "spec": "纹理 0.6 mm · 抗汗",
+              "owner": "工业 / 唐可",
+              "description": "包覆手柄的防滑软胶件，改善握持与跌落缓冲。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "纹理 0.6 mm · 抗汗"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 25"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "37.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-hnd-04",
+          "name": "快装底座",
+          "qty": 1,
+          "baselineVariantId": "h3-hnd-04-std",
+          "description": "手柄底部的快装接口，兼容三脚架与快装板。",
+          "variants": [
+            {
+              "id": "h3-hnd-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "快装底座 · 标准",
+              "price": 24,
+              "weight": 26,
+              "leadTime": 20,
+              "risk": "低",
+              "material": "AL6061",
+              "spec": "1/4″-20",
+              "owner": "结构 / 陈屿",
+              "description": "手柄底部的快装接口，兼容三脚架与快装板。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/4″-20"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 24"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "26 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "20 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "快装底座 · 轻量",
+              "price": 25,
+              "weight": 21.3,
+              "leadTime": 23,
+              "risk": "低",
+              "material": "AL6061",
+              "spec": "1/4″-20 · 轻量",
+              "owner": "结构 / 陈屿",
+              "description": "手柄底部的快装接口，兼容三脚架与快装板。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/4″-20 · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 25"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "21.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "23 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "快装底座 · 增强",
+              "price": 28,
+              "weight": 28.1,
+              "leadTime": 26,
+              "risk": "中",
+              "material": "AL6061",
+              "spec": "1/4″-20 · 防脱",
+              "owner": "结构 / 陈屿",
+              "description": "手柄底部的快装接口，兼容三脚架与快装板。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/4″-20 · 防脱"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 28"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "28.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "26 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-hnd-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "快装底座 · 旗舰",
+              "price": 33,
+              "weight": 30.7,
+              "leadTime": 30,
+              "risk": "中",
+              "material": "AL6061",
+              "spec": "1/4″-20 · 锁止",
+              "owner": "结构 / 陈屿",
+              "description": "手柄底部的快装接口，兼容三脚架与快装板。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "1/4″-20 · 锁止"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 33"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "30.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "h3-ctl",
+      "name": "控制电子",
+      "index": 6,
+      "parts": [
+        {
+          "code": "h3-ctl-01",
+          "name": "主控板",
+          "qty": 1,
+          "baselineVariantId": "h3-ctl-01-std",
+          "description": "整机主控 PCBA，运行增稳算法与系统调度。",
+          "variants": [
+            {
+              "id": "h3-ctl-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "主控板 · 标准",
+              "price": 128,
+              "weight": 24,
+              "leadTime": 30,
+              "risk": "高",
+              "material": "8 层 PCB",
+              "spec": "ARM M7 · 480 MHz",
+              "owner": "电子 / 周予",
+              "description": "整机主控 PCBA，运行增稳算法与系统调度。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "ARM M7 · 480 MHz"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 128"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "24 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "主控板 · 轻量",
+              "price": 136,
+              "weight": 19.7,
+              "leadTime": 33,
+              "risk": "高",
+              "material": "8 层 PCB",
+              "spec": "ARM M7 · 480 MHz · 低功耗",
+              "owner": "电子 / 周予",
+              "description": "整机主控 PCBA，运行增稳算法与系统调度。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "ARM M7 · 480 MHz · 低功耗"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 136"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "19.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "33 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "主控板 · 增强",
+              "price": 151,
+              "weight": 25.9,
+              "leadTime": 36,
+              "risk": "高",
+              "material": "8 层 PCB",
+              "spec": "ARM M7 · 600 MHz",
+              "owner": "电子 / 周予",
+              "description": "整机主控 PCBA，运行增稳算法与系统调度。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "ARM M7 · 600 MHz"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 151"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "25.9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "36 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "主控板 · 旗舰",
+              "price": 177,
+              "weight": 28.3,
+              "leadTime": 40,
+              "risk": "高",
+              "material": "8 层 PCB",
+              "spec": "双核 M7 · 800 MHz",
+              "owner": "电子 / 周予",
+              "description": "整机主控 PCBA，运行增稳算法与系统调度。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "双核 M7 · 800 MHz"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 177"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "28.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "40 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-ctl-02",
+          "name": "三轴驱动板",
+          "qty": 1,
+          "baselineVariantId": "h3-ctl-02-std",
+          "description": "三路电机驱动与电流采样电路板。",
+          "variants": [
+            {
+              "id": "h3-ctl-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "三轴驱动板 · 标准",
+              "price": 96,
+              "weight": 18,
+              "leadTime": 30,
+              "risk": "高",
+              "material": "4 层 PCB",
+              "spec": "3 × FOC",
+              "owner": "电子 / 周予",
+              "description": "三路电机驱动与电流采样电路板。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "3 × FOC"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 96"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "18 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "三轴驱动板 · 轻量",
+              "price": 102,
+              "weight": 14.8,
+              "leadTime": 33,
+              "risk": "高",
+              "material": "4 层 PCB",
+              "spec": "3 × FOC · 集成",
+              "owner": "电子 / 周予",
+              "description": "三路电机驱动与电流采样电路板。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "3 × FOC · 集成"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 102"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "14.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "33 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "三轴驱动板 · 增强",
+              "price": 113,
+              "weight": 19.4,
+              "leadTime": 36,
+              "risk": "高",
+              "material": "4 层 PCB",
+              "spec": "3 × FOC · 增强",
+              "owner": "电子 / 周予",
+              "description": "三路电机驱动与电流采样电路板。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "3 × FOC · 增强"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 113"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "19.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "36 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "三轴驱动板 · 旗舰",
+              "price": 132,
+              "weight": 21.2,
+              "leadTime": 40,
+              "risk": "高",
+              "material": "4 层 PCB",
+              "spec": "3 × FOC · 双路冗余",
+              "owner": "电子 / 周予",
+              "description": "三路电机驱动与电流采样电路板。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "3 × FOC · 双路冗余"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 132"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "21.2 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "40 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-ctl-03",
+          "name": "摇杆与按键",
+          "qty": 1,
+          "baselineVariantId": "h3-ctl-03-std",
+          "description": "摇杆、按键与相应的人机交互器件组合。",
+          "variants": [
+            {
+              "id": "h3-ctl-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "摇杆与按键 · 标准",
+              "price": 22,
+              "weight": 8,
+              "leadTime": 15,
+              "risk": "低",
+              "material": "霍尔摇杆",
+              "spec": "2 轴 + 3 Key",
+              "owner": "工业 / 唐可",
+              "description": "摇杆、按键与相应的人机交互器件组合。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2 轴 + 3 Key"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 22"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "15 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "摇杆与按键 · 轻量",
+              "price": 23,
+              "weight": 6.6,
+              "leadTime": 18,
+              "risk": "低",
+              "material": "霍尔摇杆",
+              "spec": "2 轴 + 3 Key · 轻量",
+              "owner": "工业 / 唐可",
+              "description": "摇杆、按键与相应的人机交互器件组合。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2 轴 + 3 Key · 轻量"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 23"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "6.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "18 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "摇杆与按键 · 增强",
+              "price": 26,
+              "weight": 8.6,
+              "leadTime": 21,
+              "risk": "中",
+              "material": "霍尔摇杆",
+              "spec": "2 轴 + 3 Key · 霍尔",
+              "owner": "工业 / 唐可",
+              "description": "摇杆、按键与相应的人机交互器件组合。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2 轴 + 3 Key · 霍尔"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 26"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "8.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "21 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "摇杆与按键 · 旗舰",
+              "price": 30,
+              "weight": 9.4,
+              "leadTime": 25,
+              "risk": "中",
+              "material": "霍尔摇杆",
+              "spec": "2 轴 + 4 Key · 霍尔",
+              "owner": "工业 / 唐可",
+              "description": "摇杆、按键与相应的人机交互器件组合。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2 轴 + 4 Key · 霍尔"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 30"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "9.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "25 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-ctl-04",
+          "name": "蓝牙模块",
+          "qty": 1,
+          "baselineVariantId": "h3-ctl-04-std",
+          "description": "与手机 App 通信的蓝牙模组。",
+          "variants": [
+            {
+              "id": "h3-ctl-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "蓝牙模块 · 标准",
+              "price": 36,
+              "weight": 4,
+              "leadTime": 18,
+              "risk": "低",
+              "material": "BLE 5.3",
+              "spec": "BLE 5.3",
+              "owner": "固件 / 苏航",
+              "description": "与手机 App 通信的蓝牙模组。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "BLE 5.3"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 36"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "18 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "蓝牙模块 · 轻量",
+              "price": 38,
+              "weight": 3.3,
+              "leadTime": 21,
+              "risk": "低",
+              "material": "BLE 5.3",
+              "spec": "BLE 5.3 · 低功耗",
+              "owner": "固件 / 苏航",
+              "description": "与手机 App 通信的蓝牙模组。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "BLE 5.3 · 低功耗"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 38"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "3.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "21 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "蓝牙模块 · 增强",
+              "price": 42,
+              "weight": 4.3,
+              "leadTime": 24,
+              "risk": "中",
+              "material": "BLE 5.3",
+              "spec": "BLE 5.3 + 天线",
+              "owner": "固件 / 苏航",
+              "description": "与手机 App 通信的蓝牙模组。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "BLE 5.3 + 天线"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 42"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "24 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-ctl-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "蓝牙模块 · 旗舰",
+              "price": 50,
+              "weight": 4.7,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "BLE 5.3",
+              "spec": "BLE 5.4 + Wi-Fi",
+              "owner": "固件 / 苏航",
+              "description": "与手机 App 通信的蓝牙模组。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "BLE 5.4 + Wi-Fi"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 50"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "h3-pwr",
+      "name": "电源与线束",
+      "index": 7,
+      "parts": [
+        {
+          "code": "h3-pwr-01",
+          "name": "锂电池组",
+          "qty": 1,
+          "baselineVariantId": "h3-pwr-01-std",
+          "description": "整机供电电池组，含电芯与保护板。",
+          "variants": [
+            {
+              "id": "h3-pwr-01-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "锂电池组 · 标准",
+              "price": 78,
+              "weight": 98,
+              "leadTime": 40,
+              "risk": "高",
+              "material": "2S Li-ion",
+              "spec": "7.4 V · 1800 mAh",
+              "owner": "电子 / 周予",
+              "description": "整机供电电池组，含电芯与保护板。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "7.4 V · 1800 mAh"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 78"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "98 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "40 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-01-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "锂电池组 · 轻量",
+              "price": 83,
+              "weight": 80.4,
+              "leadTime": 43,
+              "risk": "高",
+              "material": "2S Li-ion",
+              "spec": "7.4 V · 1500 mAh",
+              "owner": "电子 / 周予",
+              "description": "整机供电电池组，含电芯与保护板。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "7.4 V · 1500 mAh"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 83"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "80.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "43 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-01-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "锂电池组 · 增强",
+              "price": 92,
+              "weight": 105.8,
+              "leadTime": 46,
+              "risk": "高",
+              "material": "2S Li-ion",
+              "spec": "7.4 V · 2200 mAh",
+              "owner": "电子 / 周予",
+              "description": "整机供电电池组，含电芯与保护板。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "7.4 V · 2200 mAh"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 92"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "105.8 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "46 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-01-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "锂电池组 · 旗舰",
+              "price": 108,
+              "weight": 115.6,
+              "leadTime": 50,
+              "risk": "高",
+              "material": "2S Li-ion",
+              "spec": "7.4 V · 3000 mAh",
+              "owner": "电子 / 周予",
+              "description": "整机供电电池组，含电芯与保护板。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "7.4 V · 3000 mAh"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 108"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "115.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "50 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-pwr-02",
+          "name": "电源管理板",
+          "qty": 1,
+          "baselineVariantId": "h3-pwr-02-std",
+          "description": "充放电管理、电量计与多路稳压的 PCBA。",
+          "variants": [
+            {
+              "id": "h3-pwr-02-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "电源管理板 · 标准",
+              "price": 42,
+              "weight": 16,
+              "leadTime": 30,
+              "risk": "中",
+              "material": "4 层 PCB",
+              "spec": "2S BMS · 5 V / 3 A",
+              "owner": "电子 / 周予",
+              "description": "充放电管理、电量计与多路稳压的 PCBA。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2S BMS · 5 V / 3 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 42"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "16 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "30 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-02-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "电源管理板 · 轻量",
+              "price": 45,
+              "weight": 13.1,
+              "leadTime": 33,
+              "risk": "中",
+              "material": "4 层 PCB",
+              "spec": "2S BMS · 5 V / 2 A",
+              "owner": "电子 / 周予",
+              "description": "充放电管理、电量计与多路稳压的 PCBA。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2S BMS · 5 V / 2 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 45"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "13.1 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "33 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-02-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "电源管理板 · 增强",
+              "price": 50,
+              "weight": 17.3,
+              "leadTime": 36,
+              "risk": "高",
+              "material": "4 层 PCB",
+              "spec": "2S BMS · 5 V / 4 A",
+              "owner": "电子 / 周予",
+              "description": "充放电管理、电量计与多路稳压的 PCBA。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2S BMS · 5 V / 4 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 50"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "17.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "36 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-02-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "电源管理板 · 旗舰",
+              "price": 58,
+              "weight": 18.9,
+              "leadTime": 40,
+              "risk": "高",
+              "material": "4 层 PCB",
+              "spec": "2S BMS · 5 V / 5 A",
+              "owner": "电子 / 周予",
+              "description": "充放电管理、电量计与多路稳压的 PCBA。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "2S BMS · 5 V / 5 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 58"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "18.9 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "40 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-pwr-03",
+          "name": "USB-C 接口",
+          "qty": 1,
+          "baselineVariantId": "h3-pwr-03-std",
+          "description": "充电与数据传输的 USB-C 连接器及外围。",
+          "variants": [
+            {
+              "id": "h3-pwr-03-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "USB-C 接口 · 标准",
+              "price": 12,
+              "weight": 4,
+              "leadTime": 12,
+              "risk": "低",
+              "material": "USB 2.0",
+              "spec": "5 V / 3 A",
+              "owner": "电子 / 周予",
+              "description": "充电与数据传输的 USB-C 连接器及外围。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "5 V / 3 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 12"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "12 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-03-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "USB-C 接口 · 轻量",
+              "price": 13,
+              "weight": 3.3,
+              "leadTime": 15,
+              "risk": "低",
+              "material": "USB 2.0",
+              "spec": "5 V / 2 A",
+              "owner": "电子 / 周予",
+              "description": "充电与数据传输的 USB-C 连接器及外围。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "5 V / 2 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 13"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "3.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "15 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "低"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-03-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "USB-C 接口 · 增强",
+              "price": 14,
+              "weight": 4.3,
+              "leadTime": 18,
+              "risk": "中",
+              "material": "USB 2.0",
+              "spec": "5 V / 3 A · ESD+",
+              "owner": "电子 / 周予",
+              "description": "充电与数据传输的 USB-C 连接器及外围。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "5 V / 3 A · ESD+"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 14"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.3 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "18 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-03-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "USB-C 接口 · 旗舰",
+              "price": 17,
+              "weight": 4.7,
+              "leadTime": 22,
+              "risk": "中",
+              "material": "USB 2.0",
+              "spec": "USB 3.2 · 5 A",
+              "owner": "电子 / 周予",
+              "description": "充电与数据传输的 USB-C 连接器及外围。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "USB 3.2 · 5 A"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 17"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "4.7 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "22 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "h3-pwr-04",
+          "name": "内部线束",
+          "qty": 1,
+          "baselineVariantId": "h3-pwr-04-std",
+          "description": "连接各板卡与电机的内部线缆组合。",
+          "variants": [
+            {
+              "id": "h3-pwr-04-std",
+              "tier": "标准",
+              "tierKey": "std",
+              "name": "内部线束 · 标准",
+              "price": 26,
+              "weight": 20,
+              "leadTime": 28,
+              "risk": "中",
+              "material": "硅胶线 + FPC",
+              "spec": "22–28 AWG",
+              "owner": "电子 / 周予",
+              "description": "连接各板卡与电机的内部线缆组合。沿用基线规格，成本与风险最低。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "22–28 AWG"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 26"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "20 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "28 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-04-lite",
+              "tier": "轻量",
+              "tierKey": "lite",
+              "name": "内部线束 · 轻量",
+              "price": 28,
+              "weight": 16.4,
+              "leadTime": 31,
+              "risk": "中",
+              "material": "硅胶线 + FPC",
+              "spec": "22–28 AWG · 细径",
+              "owner": "电子 / 周予",
+              "description": "连接各板卡与电机的内部线缆组合。减重优先，单价与交期略增。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "22–28 AWG · 细径"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 28"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "16.4 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "31 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "中"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-04-plus",
+              "tier": "增强",
+              "tierKey": "plus",
+              "name": "内部线束 · 增强",
+              "price": 31,
+              "weight": 21.6,
+              "leadTime": 34,
+              "risk": "高",
+              "material": "硅胶线 + FPC",
+              "spec": "22–28 AWG · 屏蔽",
+              "owner": "电子 / 周予",
+              "description": "连接各板卡与电机的内部线缆组合。性能提升，重量与成本上浮。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "22–28 AWG · 屏蔽"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 31"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "21.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "34 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            },
+            {
+              "id": "h3-pwr-04-pro",
+              "tier": "旗舰",
+              "tierKey": "pro",
+              "name": "内部线束 · 旗舰",
+              "price": 36,
+              "weight": 23.6,
+              "leadTime": 38,
+              "risk": "高",
+              "material": "硅胶线 + FPC",
+              "spec": "20–26 AWG · 耐弯",
+              "owner": "电子 / 周予",
+              "description": "连接各板卡与电机的内部线缆组合。规格拉满，成本与交期最高。",
+              "params": [
+                {
+                  "label": "用量",
+                  "value": "×1"
+                },
+                {
+                  "label": "关键规格",
+                  "value": "20–26 AWG · 耐弯"
+                },
+                {
+                  "label": "原型单价",
+                  "value": "¥ 36"
+                },
+                {
+                  "label": "单件重量",
+                  "value": "23.6 g"
+                },
+                {
+                  "label": "采购周期",
+                  "value": "38 天"
+                },
+                {
+                  "label": "风险",
+                  "value": "高"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

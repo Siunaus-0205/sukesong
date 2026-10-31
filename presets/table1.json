@@ -1,0 +1,434 @@
+{
+  "$comment": [
+    "表1 格式说明（本文件即契约：改表不改代码）",
+    "1. 层级：L1 整机 → L2 模块 → L3 零件。L4（材料 / 工艺级）自 v2.0.0 起暂时停用。",
+    "2. 编码：L1 = 商品类型 id（h3）；L2 = <L1>-<模块缩写>（h3-cam）；L3 = <L2>-<两位序号>（h3-cam-01）。全部小写，连字符分隔，层级靠前缀即可读出。",
+    "3. 结构：productTypes[] 每个条目代表一个 L1 整机；其 modules[] 是 L2；每个模块的 parts[] 是 L3。零件字段：code / name / qty 必填，unit 默认 pcs，material、spec 可为空字符串（表1 不编造材料与规格）。",
+    "4. 选择规则：L1 永远包含、不可取消，且 L1 不覆盖下级；L2 与 L3 同一模块内二选一，不允许上下重合；每个 L3 必须被覆盖——要么选中它的 L2（整模块），要么直接选中该 L3；取消某个 L2 时，其全部 L3 立即展开并锁定为已选，重新勾选 L2 时这些 L3 收回。",
+    "5. 新增商品类型：复制一个 productTypes 条目，按同一编码规则补 modules 与 parts；questions.json、前端与 AI 契约都不用改。",
+    "6. 恢复 L4：在 bomLevels 里加回 L4 定义，并给需要深拆的模块补 L4 条目即可。"
+  ],
+  "id": "table1-atlas-hardware-v2",
+  "name": "表1 · 预设商品类型表",
+  "version": "2.0.0",
+  "updatedAt": "2026-10-31",
+  "note": "AI 只能从本表的 productTypes / modules / parts 中按 code 选择，不能自造零件；本文件可整体替换，流程与函数契约不变。",
+  "productTypes": [
+    {
+      "id": "h3",
+      "code": "h3",
+      "name": "h3 手持云台",
+      "category": "影像硬件",
+      "description": "三轴手持云台整机：相机与成像、俯仰/横滚/航向三个增稳轴、手柄、控制电子与电源线束。",
+      "keywords": ["h3", "手持云台", "三轴", "稳定器", "增稳", "gimbal", "防抖", "手持"],
+      "defaultBomLevel": "L2",
+      "benchmarkHints": ["DJI RS 4 Pro", "智云 WEEBILL 3S", "Moza AirCross 3"],
+      "modules": [
+        {
+          "code": "h3-cam",
+          "name": "相机与成像",
+          "description": "成像链路的完整模组：镜头、传感器、图像处理板与散热结构，决定画质与视场角。",
+          "keywords": ["相机", "成像", "镜头", "传感器", "CMOS", "影像", "画质", "散热"],
+          "parts": [
+            {
+              "code": "h3-cam-01",
+              "name": "相机模组",
+              "qty": 1,
+              "description": "光学、传感器与 ISP 的集成体，可整体采购与校准。",
+              "keywords": ["相机模组", "影像模组", "camera module"]
+            },
+            {
+              "code": "h3-cam-02",
+              "name": "镜头与滤光片",
+              "qty": 1,
+              "description": "镜片组与 IR 滤光片，决定视场角与进光量。",
+              "keywords": ["镜头", "镜片", "滤光片", "IR"]
+            },
+            {
+              "code": "h3-cam-03",
+              "name": "图像传感器板",
+              "qty": 1,
+              "description": "承载 CMOS 与 ISP 的电路板，含图像输出接口。",
+              "keywords": ["传感器板", "CMOS", "ISP", "图像板"]
+            },
+            {
+              "code": "h3-cam-04",
+              "name": "散热支架",
+              "qty": 1,
+              "description": "相机模组的结构支撑兼导热件，抑制长时间录制温升。",
+              "keywords": ["散热", "支架", "导热", "结构件"]
+            }
+          ]
+        },
+        {
+          "code": "h3-pit",
+          "name": "俯仰轴总成",
+          "description": "Pitch 轴：驱动电机、轴臂、姿态传感与轴承，负责镜头仰俯增稳。",
+          "keywords": ["俯仰", "pitch", "上轴", "增稳", "姿态", "IMU"],
+          "parts": [
+            {
+              "code": "h3-pit-01",
+              "name": "俯仰无刷电机",
+              "qty": 1,
+              "description": "驱动俯仰轴的无刷电机，含霍尔/编码反馈。",
+              "keywords": ["无刷电机", "电机", "pitch 电机"]
+            },
+            {
+              "code": "h3-pit-02",
+              "name": "俯仰轴臂",
+              "qty": 1,
+              "description": "连接俯仰电机与相机端的结构臂，决定轴长与刚度。",
+              "keywords": ["轴臂", "臂", "结构臂"]
+            },
+            {
+              "code": "h3-pit-03",
+              "name": "姿态传感 IMU-A",
+              "qty": 1,
+              "description": "俯仰轴的姿态检测单元，输出角速度与角度。",
+              "keywords": ["IMU", "姿态传感", "陀螺仪", "加速度计"]
+            },
+            {
+              "code": "h3-pit-04",
+              "name": "微型轴承",
+              "qty": 2,
+              "description": "俯仰轴支承轴承，影响回差与顺滑度。",
+              "keywords": ["轴承", "支承", "微型轴承"]
+            }
+          ]
+        },
+        {
+          "code": "h3-rol",
+          "name": "横滚轴总成",
+          "description": "Roll 轴：驱动电机、轴臂、滑环线束与机械限位，负责左右倾斜增稳。",
+          "keywords": ["横滚", "roll", "中轴", "滑环", "限位"],
+          "parts": [
+            {
+              "code": "h3-rol-01",
+              "name": "横滚无刷电机",
+              "qty": 1,
+              "description": "驱动横滚轴的无刷电机。",
+              "keywords": ["无刷电机", "电机", "roll 电机"]
+            },
+            {
+              "code": "h3-rol-02",
+              "name": "横滚轴臂",
+              "qty": 1,
+              "description": "横滚轴与俯仰轴之间的连接臂。",
+              "keywords": ["轴臂", "臂", "结构臂"]
+            },
+            {
+              "code": "h3-rol-03",
+              "name": "滑环线束",
+              "qty": 1,
+              "description": "跨轴旋转导电的滑环与线束，保证连续 360° 供电与信号。",
+              "keywords": ["滑环", "线束", "走线", "导电滑环"]
+            },
+            {
+              "code": "h3-rol-04",
+              "name": "机械限位件",
+              "qty": 2,
+              "description": "限制横滚轴行程的机械挡块，防止线束过扭。",
+              "keywords": ["限位", "挡块", "机械限位"]
+            }
+          ]
+        },
+        {
+          "code": "h3-yaw",
+          "name": "航向轴总成",
+          "description": "Yaw 轴：驱动电机、轴臂、磁性编码器与锁紧螺钉组，负责水平旋转与锁紧。",
+          "keywords": ["航向", "yaw", "下轴", "编码器", "锁紧"],
+          "parts": [
+            {
+              "code": "h3-yaw-01",
+              "name": "航向无刷电机",
+              "qty": 1,
+              "description": "驱动航向轴的无刷电机。",
+              "keywords": ["无刷电机", "电机", "yaw 电机"]
+            },
+            {
+              "code": "h3-yaw-02",
+              "name": "航向轴臂",
+              "qty": 1,
+              "description": "航向轴与手柄之间的连接臂。",
+              "keywords": ["轴臂", "臂", "结构臂"]
+            },
+            {
+              "code": "h3-yaw-03",
+              "name": "磁性编码器",
+              "qty": 1,
+              "description": "航向角的高精度磁编码反馈元件。",
+              "keywords": ["编码器", "磁编码", "角度反馈"]
+            },
+            {
+              "code": "h3-yaw-04",
+              "name": "锁紧螺钉组",
+              "qty": 6,
+              "description": "轴系与结构件的锁紧螺钉组合，含防松处理。",
+              "keywords": ["螺钉", "紧固件", "锁紧", "标准件"]
+            }
+          ]
+        },
+        {
+          "code": "h3-hnd",
+          "name": "手柄与人机",
+          "description": "握持与外壳：前后壳、握持胶套与快装底座，决定手感、防护与装配接口。",
+          "keywords": ["手柄", "握把", "外壳", "快装", "人机", "握持"],
+          "parts": [
+            {
+              "code": "h3-hnd-01",
+              "name": "手柄前壳",
+              "qty": 1,
+              "description": "手柄正面外壳，承载按键与屏幕开孔。",
+              "keywords": ["前壳", "外壳", "面壳"]
+            },
+            {
+              "code": "h3-hnd-02",
+              "name": "手柄后壳",
+              "qty": 1,
+              "description": "手柄背面外壳，与前后壳合模形成握持腔体。",
+              "keywords": ["后壳", "外壳", "底壳"]
+            },
+            {
+              "code": "h3-hnd-03",
+              "name": "握持胶套",
+              "qty": 1,
+              "description": "包覆手柄的防滑软胶件，改善握持与跌落缓冲。",
+              "keywords": ["胶套", "防滑", "硅胶", "握持"]
+            },
+            {
+              "code": "h3-hnd-04",
+              "name": "快装底座",
+              "qty": 1,
+              "description": "手柄底部的快装接口，兼容三脚架与快装板。",
+              "keywords": ["快装", "底座", "三脚架接口", "1/4 螺丝"]
+            }
+          ]
+        },
+        {
+          "code": "h3-ctl",
+          "name": "控制电子",
+          "description": "电控与交互：主控板、三轴驱动板、摇杆按键与蓝牙模块。",
+          "keywords": ["主控", "驱动", "摇杆", "按键", "蓝牙", "电控", "控制"],
+          "parts": [
+            {
+              "code": "h3-ctl-01",
+              "name": "主控板",
+              "qty": 1,
+              "description": "整机主控 PCBA，运行增稳算法与系统调度。",
+              "keywords": ["主控", "PCBA", "主板", "MCU"]
+            },
+            {
+              "code": "h3-ctl-02",
+              "name": "三轴驱动板",
+              "qty": 1,
+              "description": "三路电机驱动与电流采样电路板。",
+              "keywords": ["驱动板", "电机驱动", "FOC", "功率级"]
+            },
+            {
+              "code": "h3-ctl-03",
+              "name": "摇杆与按键",
+              "qty": 1,
+              "description": "摇杆、按键与相应的人机交互器件组合。",
+              "keywords": ["摇杆", "按键", "交互", "按键板"]
+            },
+            {
+              "code": "h3-ctl-04",
+              "name": "蓝牙模块",
+              "qty": 1,
+              "description": "与手机 App 通信的蓝牙模组。",
+              "keywords": ["蓝牙", "BLE", "无线", "App 连接"]
+            }
+          ]
+        },
+        {
+          "code": "h3-pwr",
+          "name": "电源与线束",
+          "description": "供电链路：锂电池组、电源管理板、USB-C 接口与内部线束。",
+          "keywords": ["电源", "电池", "BMS", "USB-C", "线束", "续航", "充电"],
+          "parts": [
+            {
+              "code": "h3-pwr-01",
+              "name": "锂电池组",
+              "qty": 1,
+              "description": "整机供电电池组，含电芯与保护板。",
+              "keywords": ["电池", "电芯", "锂电", "电池包"]
+            },
+            {
+              "code": "h3-pwr-02",
+              "name": "电源管理板",
+              "qty": 1,
+              "description": "充放电管理、电量计与多路稳压的 PCBA。",
+              "keywords": ["电源管理", "BMS", "充电管理", "PMIC"]
+            },
+            {
+              "code": "h3-pwr-03",
+              "name": "USB-C 接口",
+              "qty": 1,
+              "description": "充电与数据传输的 USB-C 连接器及外围。",
+              "keywords": ["USB-C", "Type-C", "接口", "充电口"]
+            },
+            {
+              "code": "h3-pwr-04",
+              "name": "内部线束",
+              "qty": 1,
+              "description": "连接各板卡与电机的内部线缆组合。",
+              "keywords": ["线束", "排线", "FPC", "走线"]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bomLevels": [
+    {
+      "id": "L1",
+      "code": "BOM-L1",
+      "name": "整机 / 系统级",
+      "description": "整机条目本身，作为 BOM 根节点；固定包含、不可取消，且不覆盖任何下级。",
+      "scope": "整机、系统边界",
+      "inclusions": ["整机型号", "系统边界"],
+      "exclusions": ["模块划分", "零件规格", "材料牌号"],
+      "bestFor": "立项、报价主体、交付对象"
+    },
+    {
+      "id": "L2",
+      "code": "BOM-L2",
+      "name": "模块 / 组件级",
+      "description": "按功能模块整体采购或发包；选中模块即代表其下全部零件已被覆盖。",
+      "scope": "功能模块、组件、总成",
+      "inclusions": ["功能模块", "组件", "总成", "模块间接口"],
+      "exclusions": ["单个零件规格", "材料牌号", "表面处理"],
+      "bestFor": "跨专业协作、模块询价、成本估算"
+    },
+    {
+      "id": "L3",
+      "code": "BOM-L3",
+      "name": "零部件级",
+      "description": "模块展开后的零件，可独立采购/加工；同一模块内与 L2 二选一，且此层不允许存在未被覆盖的零件。",
+      "scope": "零件、数量、材料大类",
+      "inclusions": ["零件名称", "数量", "材料大类", "标准件/定制件"],
+      "exclusions": ["材料牌号", "热处理参数", "表面处理工艺参数"],
+      "bestFor": "打样、询价、原型 BOM、装配"
+    }
+  ],
+  "constraintDimensions": [
+    {
+      "id": "weight",
+      "name": "整机重量",
+      "unit": "g",
+      "examples": ["整机不超过 800 g", "重量控制在 1 kg 以内"],
+      "verification": "整机含电池称重"
+    },
+    {
+      "id": "dimensions",
+      "name": "外形尺寸",
+      "unit": "mm",
+      "examples": ["长宽高不超过 120 × 80 × 40 mm"],
+      "verification": "卡尺/三坐标测量"
+    },
+    {
+      "id": "budget",
+      "name": "BOM 成本 / 预算",
+      "unit": "CNY",
+      "examples": ["BOM 成本控制在 2500 元以内"],
+      "verification": "BOM 成本核算"
+    },
+    {
+      "id": "payload",
+      "name": "额定负载",
+      "unit": "kg",
+      "examples": ["额定负载不低于 1.5 kg"],
+      "verification": "负载与配平测试"
+    },
+    {
+      "id": "runtime",
+      "name": "续航时间",
+      "unit": "h",
+      "examples": ["标准工况续航不少于 10 小时"],
+      "verification": "标准工况续航测试"
+    },
+    {
+      "id": "ingress",
+      "name": "防护等级",
+      "unit": "",
+      "examples": ["必须达到 IP54"],
+      "verification": "IP 防护等级测试"
+    },
+    {
+      "id": "temperature",
+      "name": "工作温度",
+      "unit": "°C",
+      "examples": ["工作温度 0–40 °C"],
+      "verification": "高低温循环测试"
+    },
+    {
+      "id": "certification",
+      "name": "认证要求",
+      "unit": "",
+      "examples": ["必须通过 CE 和 FCC"],
+      "verification": "第三方认证报告"
+    },
+    {
+      "id": "lead_time",
+      "name": "交付周期",
+      "unit": "day",
+      "examples": ["首批交期不超过 45 天"],
+      "verification": "采购与排产确认"
+    },
+    {
+      "id": "interface",
+      "name": "接口 / 协议",
+      "unit": "",
+      "examples": ["必须提供 USB-C 和 HDMI 输出"],
+      "verification": "接口协议联调"
+    },
+    {
+      "id": "compatibility",
+      "name": "兼容性",
+      "unit": "",
+      "examples": ["兼容 iPhone 15–17 全系"],
+      "verification": "目标机型兼容性测试"
+    },
+    {
+      "id": "material",
+      "name": "材料要求",
+      "unit": "",
+      "examples": ["外壳必须使用 6061 铝合金"],
+      "verification": "材质证明与来料检验"
+    },
+    {
+      "id": "reliability",
+      "name": "可靠性 / 寿命",
+      "unit": "",
+      "examples": ["折叠寿命不少于 10,000 次"],
+      "verification": "寿命/可靠性测试"
+    },
+    {
+      "id": "none",
+      "name": "无额外硬性约束",
+      "unit": "",
+      "examples": ["没有额外硬性约束"],
+      "verification": "人工确认"
+    },
+    {
+      "id": "custom",
+      "name": "其他约束",
+      "unit": "",
+      "examples": ["必须使用可回收包装"],
+      "verification": "人工复核"
+    }
+  ],
+  "benchmarkDimensions": [
+    { "id": "price", "name": "价格", "hint": "零售价或 BOM 成本" },
+    { "id": "weight", "name": "重量", "hint": "整机重量与便携性" },
+    { "id": "payload", "name": "负载", "hint": "额定负载与配平能力" },
+    { "id": "runtime", "name": "续航", "hint": "标准工况使用时间" },
+    { "id": "imaging", "name": "影像", "hint": "传感器、分辨率、帧率" },
+    { "id": "stabilization", "name": "防抖", "hint": "增稳算法与轴数" },
+    { "id": "dimensions", "name": "尺寸", "hint": "收纳体积与展开尺寸" },
+    { "id": "material", "name": "材质", "hint": "结构材料与表面处理" },
+    { "id": "interface", "name": "接口", "hint": "扩展接口与协议" },
+    { "id": "ingress", "name": "防护", "hint": "防水防尘等级" },
+    { "id": "ecosystem", "name": "生态", "hint": "App、配件与兼容性" }
+  ]
+}
